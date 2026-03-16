@@ -1,0 +1,11 @@
+# 1. INTRODUÇÃO
+
+A chegada de uma criança em um núcleo familiar é acompanhada por mudanças drásticas na rotina e um aumento expressivo no consumo de bens materiais de curta duração. Itens como fraldas, roupas, calçados e acessórios de puericultura possuem um ciclo de uso extremamente rápido devido ao desenvolvimento acelerado dos bebês nos primeiros anos de vida. Frequentemente, as famílias acumulam estoques de produtos novos ou em excelente estado (como fraldas de tamanhos menores ou roupas pouco usadas) que perdem a utilidade antes mesmo de serem totalmente consumidos, gerando desperdício financeiro e ambiental.
+
+Este projeto propõe o desenvolvimento da plataforma **Permutas Baby**, uma solução tecnológica baseada nos princípios da economia circular e colaborativa. O tema situa-se na interseção entre a Engenharia de Software e a Sustentabilidade, buscando utilizar ferramentas digitais para facilitar o escambo organizado entre famílias. A motivação para este trabalho decorre da observação de que, embora existam redes sociais para trocas, falta uma plataforma especializada com banco de dados estruturado que ofereça segurança, filtros por categorias/tamanhos e um sistema de propostas de troca formalizado.
+
+O **problema de pesquisa** que norteia este trabalho pode ser sintetizado na seguinte questão: *Como facilitar a redistribuição eficiente e segura de excedentes de artigos infantis entre famílias, reduzindo o impacto econômico doméstico e o desperdício ambiental por meio de uma plataforma web?*
+
+O **foco da pesquisa** delimita-se à criação de um Produto Mínimo Viável (MVP) que gerencie o catálogo de produtos e as propostas de permuta, sem intermediação monetária. O estudo abrange desde o levantamento de requisitos com usuários reais, utilizando a metodologia de *Human-Centered Design*, até a implementação técnica utilizando o framework Django e banco de dados relacional.
+
+Dessa forma, o trabalho tem como **objeto de estudo** a arquitetura e o desenvolvimento de uma aplicação web de economia circular dedicada especificamente ao nicho materno-infantil, visando validar se a automação do processo de permuta por escambo pode efetivamente promover um consumo mais consciente e comunitário.

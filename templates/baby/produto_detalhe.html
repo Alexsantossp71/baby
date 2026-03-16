@@ -1,0 +1,215 @@
+{% extends 'baby/base_baby.html' %}
+
+{% block title %}{{ produto.titulo }} - Permutas Baby{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+    <!-- Product Images -->
+    <div class="space-y-4">
+        <div class="aspect-square rounded-2xl overflow-hidden bg-slate-100">
+            {% if produto.imagem_principal %}
+                <img id="main-image" class="w-full h-full object-cover" src="{{ produto.imagem_principal.url }}" alt="{{ produto.titulo }}"/>
+            {% else %}
+                <div class="w-full h-full flex items-center justify-center">
+                    <span class="material-symbols-outlined text-6xl text-slate-300">image</span>
+                </div>
+            {% endif %}
+        </div>
+        {% if produto.imagens|length > 1 %}
+            <div class="grid grid-cols-4 gap-2">
+                {% for img in produto.imagens %}
+                    <button onclick="document.getElementById('main-image').src='{{ img.url }}'" class="aspect-square rounded-lg overflow-hidden bg-slate-100 border-2 border-transparent hover:border-primary transition-colors">
+                        <img class="w-full h-full object-cover" src="{{ img.url }}" alt=""/>
+                    </button>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Product Info -->
+    <div>
+        <div class="flex items-start justify-between gap-4 mb-4">
+            <div>
+                {% if produto.categoria %}
+                    <span class="text-sm text-slate-500">{{ produto.categoria.nome }}</span>
+                {% endif %}
+                <h1 class="text-3xl font-black text-slate-900">{{ produto.titulo }}</h1>
+            </div>
+            <button id="favorite-btn" class="p-3 rounded-full border border-slate-200 hover:border-red-500 hover:text-red-500 transition-colors {% if favoritado %}text-red-500 border-red-500{% endif %}">
+                <span class="material-symbols-outlined">favorite</span>
+            </button>
+        </div>
+        
+        <div class="flex items-center gap-4 mb-6">
+            <span class="px-3 py-1 rounded-lg text-xs font-bold uppercase
+                {% if produto.condicao == 'novo' %}bg-brand-blue text-blue-600
+                {% elif produto.condicao == 'seminovo' %}bg-brand-pink text-pink-600
+                {% elif produto.condicao == 'usado_otimo' %}bg-brand-mint text-teal-600
+                {% else %}bg-slate-100 text-slate-600{% endif %}">
+                {{ produto.get_condicao_display }}
+            </span>
+            <span class="px-3 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-bold">
+                {{ produto.get_status_display }}
+            </span>
+        </div>
+        
+        <div class="flex items-center gap-2 text-slate-500 mb-6">
+            <span class="material-symbols-outlined">location_on</span>
+            <span>{{ produto.cidade }}, {{ produto.estado }}</span>
+            {% if produto.bairro %} - {{ produto.bairro }}{% endif %}
+        </div>
+        
+        <div class="prose text-slate-600 mb-8">
+            <h3 class="font-bold text-slate-900 mb-2">Descrição</h3>
+            <p>{{ produto.descricao }}</p>
+        </div>
+        
+        {% if produto.aceita_troca and produto.preferencias_troca %}
+            <div class="bg-brand-mint rounded-xl p-4 mb-8">
+                <h3 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">swap_horiz</span>
+                    Preferências de Troca
+                </h3>
+                <p class="text-slate-600">{{ produto.preferencias_troca }}</p>
+            </div>
+        {% endif %}
+        
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            {% if produto.marca %}
+                <div class="bg-slate-50 rounded-xl p-4">
+                    <span class="text-sm text-slate-500">Marca</span>
+                    <p class="font-bold">{{ produto.marca.nome }}</p>
+                </div>
+            {% endif %}
+            {% if produto.tamanho_fralda %}
+                <div class="bg-slate-50 rounded-xl p-4">
+                    <span class="text-sm text-slate-500">Tamanho Fralda</span>
+                    <p class="font-bold">{{ produto.get_tamanho_fralda_display }}</p>
+                </div>
+            {% endif %}
+            {% if produto.tamanho_roupa %}
+                <div class="bg-slate-50 rounded-xl p-4">
+                    <span class="text-sm text-slate-500">Tamanho Roupa</span>
+                    <p class="font-bold">{{ produto.get_tamanho_roupa_display }}</p>
+                </div>
+            {% endif %}
+            {% if produto.cor %}
+                <div class="bg-slate-50 rounded-xl p-4">
+                    <span class="text-sm text-slate-500">Cor</span>
+                    <p class="font-bold">{{ produto.cor }}</p>
+                </div>
+            {% endif %}
+            {% if produto.valor_estimado %}
+                <div class="bg-slate-50 rounded-xl p-4">
+                    <span class="text-sm text-slate-500">Valor Estimado</span>
+                    <p class="font-bold">R$ {{ produto.valor_estimado }}</p>
+                </div>
+            {% endif %}
+        </div>
+        
+        <!-- Owner Info -->
+        <div class="bg-white rounded-xl border border-slate-200 p-4 mb-8">
+            <div class="flex items-center gap-4">
+                {% if produto.usuario.foto %}
+                    <img class="w-12 h-12 rounded-full object-cover" src="{{ produto.usuario.foto.url }}" alt=""/>
+                {% else %}
+                    <div class="w-12 h-12 rounded-full bg-brand-mint flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary">person</span>
+                    </div>
+                {% endif %}
+                <div>
+                    <p class="font-bold">{{ produto.usuario.get_full_name|default:produto.usuario.username }}</p>
+                    <p class="text-sm text-slate-500">Anunciante</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Actions -->
+        {% if user.is_authenticated and user != produto.usuario %}
+            {% if produto.status == 'disponivel' %}
+                <button onclick="document.getElementById('proposta-modal').classList.remove('hidden')" class="w-full py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">
+                    Propor Troca
+                </button>
+            {% else %}
+                <button disabled class="w-full py-4 bg-slate-200 text-slate-500 rounded-xl font-bold text-lg cursor-not-allowed">
+                    Produto Indisponível
+                </button>
+            {% endif %}
+        {% elif not user.is_authenticated %}
+            <a href="{% url 'users:login' %}?next={{ request.path }}" class="block w-full py-4 bg-primary text-white rounded-xl font-bold text-lg text-center shadow-lg shadow-primary/30 hover:bg-primary/90 transition-colors">
+                Entre para Propor Troca
+            </a>
+        {% endif %}
+        
+        <div class="flex items-center justify-between mt-4 text-sm text-slate-500">
+            <span>{{ produto.visualizacoes }} visualizações</span>
+            <span>Publicado em {{ produto.criado_em|date:"d/m/Y" }}</span>
+        </div>
+    </div>
+</div>
+
+<!-- Related Products -->
+{% if produtos_relacionados %}
+    <section class="mt-16">
+        <h2 class="text-2xl font-bold tracking-tight mb-6">Produtos Relacionados</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for prod in produtos_relacionados %}
+                <a href="{% url 'baby:produto_detalhe' pk=prod.pk slug=prod.slug %}" class="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all">
+                    <div class="aspect-[4/3] relative overflow-hidden">
+                        {% if prod.imagem_principal %}
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform" src="{{ prod.imagem_principal.url }}" alt="{{ prod.titulo }}"/>
+                        {% else %}
+                            <div class="w-full h-full bg-slate-100 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-3xl text-slate-300">image</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-sm line-clamp-2">{{ prod.titulo }}</h3>
+                        <p class="text-xs text-slate-500 mt-1">{{ prod.cidade }}, {{ prod.estado }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}
+
+<!-- Trade Proposal Modal -->
+{% if user.is_authenticated and user != produto.usuario and produto.status == 'disponivel' %}
+    <div id="proposta-modal" class="fixed inset-0 bg-black/50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold">Propor Troca</h3>
+                <button onclick="document.getElementById('proposta-modal').classList.add('hidden')" class="text-slate-400 hover:text-slate-600">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <form method="post" action="{% url 'baby:criar_proposta' produto.pk %}">
+                {% csrf_token %}
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Selecione um produto seu para oferecer</label>
+                    <select name="produto_oferecido" required class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-primary/50 focus:outline-none">
+                        <option value="">Selecione...</option>
+                        {% for prod in meus_produtos_disponiveis %}
+                            <option value="{{ prod.pk }}">{{ prod.titulo }} - {{ prod.categoria.nome|default:'' }}</option>
+                        {% empty %}
+                            <option value="">Você não tem produtos disponíveis</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-bold text-slate-700 mb-2">Mensagem (opcional)</label>
+                    <textarea name="mensagem" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-primary/50 focus:outline-none" placeholder="Olá! Gostaria de trocar meu produto pelo seu..."></textarea>
+                </div>
+                
+                <button type="submit" class="w-full py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors">
+                    Enviar Proposta
+                </button>
+            </form>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}

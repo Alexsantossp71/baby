@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Anunciar Novo Item - Permutas Baby</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark px-6 md:px-20 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+<h1 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">Permutas Baby</h1>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Trocas</a>
+<a class="text-slate-600 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">Categorias</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<label class="hidden lg:flex items-stretch rounded-xl h-10 bg-slate-100 dark:bg-slate-800 border-none overflow-hidden">
+<div class="text-slate-400 flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="bg-transparent border-none focus:ring-0 text-sm placeholder:text-slate-400 w-48" placeholder="Buscar produtos..."/>
+</label>
+<div class="flex items-center gap-4 border-l border-slate-200 dark:border-slate-800 pl-4 ml-2">
+<button class="flex items-center justify-center rounded-full h-10 w-10 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<a class="flex items-center gap-2 group" href="#">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 ring-2 ring-primary/20 group-hover:ring-primary/40 transition-all" data-alt="User profile avatar smiling woman" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuARx3yxMMNTze66_2EtWaNFjULYgikPUBcIJsbUo9Hu4BnJoNb6KMx4j-0LfiIC-PELPn-zpoS6Z_rqJ61PLHv3nvsmQC3g72aoAeoVehKoRdIGfATJOlmHPAgfSsMnGFTDzj1_9Y0rxYwkMPnG3MzPc-2FBQzzXT9wmx-r7BgWESeYRHH8gJ4pGUmFn2r7up0HRmqpnL1lMZCrYQ9gwFAXpxTPRvgNsT5daDqbjox6alVw0cp3BCPxTryxwLbygp8A0WusuaFJIyQ");'></div>
+<span class="hidden sm:inline text-sm font-medium text-slate-700 dark:text-slate-200">Meu Perfil</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 max-w-4xl mx-auto w-full px-6 py-10">
+<div class="mb-10">
+<h2 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-tight">Anunciar Novo Item</h2>
+<p class="text-slate-500 dark:text-slate-400 mt-2">Desapegue com amor e encontre algo novo para o seu pequeno.</p>
+</div>
+<div class="space-y-8">
+<!-- Image Upload Section -->
+<section class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<p class="text-slate-900 dark:text-white text-lg font-bold mb-4">Fotos do Produto</p>
+<div class="flex flex-col items-center gap-4 rounded-xl border-2 border-dashed border-primary/30 bg-primary/5 px-6 py-12 hover:bg-primary/10 transition-colors cursor-pointer group">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-full shadow-sm text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">add_a_photo</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<p class="text-slate-900 dark:text-white text-base font-semibold">Arraste ou clique para adicionar</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Upload de até 5 fotos (JPG ou PNG)</p>
+</div>
+<button class="mt-2 flex items-center justify-center rounded-xl h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                            Selecionar Foto
+                        </button>
+</div>
+</section>
+<!-- Form Section -->
+<section class="bg-white dark:bg-slate-900/50 p-8 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+<!-- Title -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-bold uppercase tracking-wider">Título do Anúncio</label>
+<input class="w-full rounded-xl text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 px-4 placeholder:text-slate-400" placeholder="Ex: Carrinho de Bebê Chicco Lite Way" type="text"/>
+</div>
+<!-- Category -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-bold uppercase tracking-wider">Categoria</label>
+<select class="w-full rounded-xl text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 px-4 appearance-none">
+<option value="">Selecione uma categoria</option>
+<option value="1">Carrinhos e Passeio</option>
+<option value="2">Quarto e Enxoval</option>
+<option value="3">Brinquedos</option>
+<option value="4">Roupas e Calçados</option>
+<option value="5">Alimentação</option>
+</select>
+</div>
+<!-- Condition -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-bold uppercase tracking-wider">Estado de Conservação</label>
+<div class="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-xl h-12">
+<label class="flex-1 flex items-center justify-center cursor-pointer">
+<input checked="" class="hidden peer" name="condition" type="radio"/>
+<span class="w-full h-full flex items-center justify-center rounded-lg text-sm font-medium text-slate-500 peer-checked:bg-white dark:peer-checked:bg-slate-700 peer-checked:text-primary peer-checked:shadow-sm transition-all">Novo</span>
+</label>
+<label class="flex-1 flex items-center justify-center cursor-pointer">
+<input class="hidden peer" name="condition" type="radio"/>
+<span class="w-full h-full flex items-center justify-center rounded-lg text-sm font-medium text-slate-500 peer-checked:bg-white dark:peer-checked:bg-slate-700 peer-checked:text-primary peer-checked:shadow-sm transition-all">Seminovo</span>
+</label>
+<label class="flex-1 flex items-center justify-center cursor-pointer">
+<input class="hidden peer" name="condition" type="radio"/>
+<span class="w-full h-full flex items-center justify-center rounded-lg text-sm font-medium text-slate-500 peer-checked:bg-white dark:peer-checked:bg-slate-700 peer-checked:text-primary peer-checked:shadow-sm transition-all">Usado</span>
+</label>
+</div>
+</div>
+<!-- Description -->
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-bold uppercase tracking-wider">Descrição Detalhada</label>
+<textarea class="w-full rounded-xl text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 min-h-[160px] p-4 placeholder:text-slate-400" placeholder="Descreva o estado do item, tempo de uso, acessórios inclusos e qualquer detalhe importante para quem for trocar."></textarea>
+</div>
+<!-- Value -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-bold uppercase tracking-wider">Valor Estimado (R$)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">R$</span>
+<input class="w-full rounded-xl text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 pl-10 pr-4 placeholder:text-slate-400" placeholder="0,00" step="0.01" type="number"/>
+</div>
+</div>
+<!-- Location -->
+<div class="flex flex-col gap-2">
+<label class="text-slate-700 dark:text-slate-300 text-sm font-bold uppercase tracking-wider">Localização (Cidade/UF)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 material-symbols-outlined">location_on</span>
+<input class="w-full rounded-xl text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/50 border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 h-12 pl-11 pr-4 placeholder:text-slate-400" placeholder="Ex: São Paulo, SP" type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row items-center justify-end gap-4 pb-10">
+<button class="w-full sm:w-auto px-8 py-3 text-slate-600 dark:text-slate-400 font-bold hover:bg-slate-200 dark:hover:bg-slate-800 rounded-xl transition-colors">
+                        Cancelar
+                    </button>
+<button class="w-full sm:w-auto px-10 py-3 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/30 hover:bg-primary/90 transition-all transform hover:-translate-y-0.5">
+                        Publicar Anúncio
+                    </button>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 px-6 md:px-20">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
+<div class="flex flex-col gap-4 max-w-xs">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-2xl">child_care</span>
+<span class="text-slate-900 dark:text-white text-lg font-bold">Permutas Baby</span>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                        Conectando famílias para uma economia circular e sustentável no mundo infantil.
+                    </p>
+<div class="flex gap-4 mt-2">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#">
+<svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-sm">
+<div class="flex flex-col gap-3">
+<p class="font-bold text-slate-900 dark:text-white">Explorar</p>
+<a class="text-slate-500 hover:text-primary" href="#">Início</a>
+<a class="text-slate-500 hover:text-primary" href="#">Trocas Ativas</a>
+<a class="text-slate-500 hover:text-primary" href="#">Destaques</a>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-bold text-slate-900 dark:text-white">Sobre</p>
+<a class="text-slate-500 hover:text-primary" href="#">Como Funciona</a>
+<a class="text-slate-500 hover:text-primary" href="#">Segurança</a>
+<a class="text-slate-500 hover:text-primary" href="#">Termos</a>
+</div>
+<div class="flex flex-col gap-3">
+<p class="font-bold text-slate-900 dark:text-white">Suporte</p>
+<a class="text-slate-500 hover:text-primary" href="#">FAQ</a>
+<a class="text-slate-500 hover:text-primary" href="#">Contato</a>
+<a class="text-slate-500 hover:text-primary" href="#">Ouvidoria</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-slate-400 text-xs">© 2024 Permutas Baby. Feito com carinho para as próximas gerações.</p>
+</div>
+</footer>
+</div>
+</body></html>

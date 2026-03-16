@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Permutas Baby - Trocas de Itens para Bebê</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13", // Base theme primary
+                        "brand-mint": "#e6f4f1",
+                        "brand-blue": "#e1f5fe",
+                        "brand-pink": "#fce4ec",
+                        "background-light": "#fcfaf9",
+                        "background-dark": "#221610",
+                        "text-main": "#3e2723",
+                        "accent-soft": "#7fb8ad"
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: "Public Sans", sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 py-3">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between gap-4">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+<h2 class="text-xl font-black leading-tight tracking-tight text-slate-900 dark:text-slate-100">Permutas Baby</h2>
+</div>
+<div class="hidden lg:flex w-72">
+<div class="relative w-full">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Buscar fraldas, carrinhos..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6 lg:gap-10">
+<nav class="hidden md:flex items-center gap-8"><a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Trocas</a><a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Meu Perfil</a></nav>
+<div class="size-10 rounded-full bg-brand-mint border-2 border-white shadow-sm overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile picture showing a smiling woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2JtGFbETJgoR95mk9xOVOQu4vXGvoF3YgU4SfnAxT168Wm4O1oc1x-CWeceuAcQF_n01utCKjnFl_26CK2B8iM4cNbb2DBRcu47fiaOFZiT26i7u38c-0BadxREDuUV2qaYLW5twl37GOxArwoER_ZubXoVwM7xbWXrUqbvraIJvCHhuxAKffslj2CWa4rearFB80lzN4RUvTBuHh-0S1FMtPL1r6at9_girzXYDEIKIKpvKlT-RVcjoV28Px8ndZZN8mlHI4-KQ"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto w-full px-6 md:px-10 py-8">
+<!-- Hero Banner -->
+<section class="mb-10 rounded-2xl overflow-hidden bg-brand-mint dark:bg-primary/10 border border-brand-mint dark:border-primary/20">
+<div class="flex flex-col md:flex-row items-center gap-8 p-8 md:p-12">
+<div class="flex-1 space-y-6">
+<span class="inline-block px-4 py-1 rounded-full bg-white dark:bg-slate-800 text-xs font-bold text-primary tracking-wider uppercase">Comunidade de Pais</span>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-slate-100 leading-[1.1]">
+                            Troque o que sobrou pelo que seu <span class="text-primary">bebê precisa</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg">
+                            A plataforma amiga para pais trocarem fraldas, roupas e acessórios de forma segura, sustentável e econômica.
+                        </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg shadow-primary/30 hover:scale-105 transition-transform">
+                                Começar Troca
+                            </button>
+<button class="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-colors">
+                                Como funciona?
+                            </button>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md">
+<div class="aspect-square bg-white/50 dark:bg-slate-800/50 rounded-2xl p-4 rotate-3 shadow-xl">
+<img class="w-full h-full object-cover rounded-xl -rotate-3 hover:rotate-0 transition-transform duration-500" data-alt="Illustration or photo of a happy smiling baby in a soft colorful background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdd8RL0yYX4uBrZcD_qg3Inp3JRIAH3CrWO8PNfmqkHOtege3LJoPFL9xNGvdd79DU0FZ5DXNGO8P2AlHXvHe7_izNnBuexlCPZpM9ckqckLA7Oc_-DjFbWPOOZxfGEk_zaycc-PaR3kTI-mCOA8eq9AQGnsS46G7oyZUr5gnMDjIVaTLPZgQxoR4XPvXcHmpC_Fwt3BdWLrDkVFhx6Uo7Zg0BVzE8oHOIjY0wrc7gDVuFooCkbft5fLuQuA58WiK2xybkxKYVLvY"/>
+</div>
+</div>
+</div>
+</section>
+<div class="flex flex-col lg:flex-row gap-10">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-64 flex-shrink-0 space-y-8">
+<div>
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">tune</span> Filtros
+                        </h3>
+<div class="space-y-6">
+<!-- Category -->
+<div>
+<p class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wide">Categoria</p>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="size-5 rounded bg-brand-blue flex items-center justify-center border-2 border-transparent group-hover:border-primary/30 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+</div>
+<span class="text-sm font-medium">Fraldas</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="size-5 rounded bg-slate-100 dark:bg-slate-800 border-2 border-transparent transition-all"></div>
+<span class="text-sm font-medium">Roupas</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="size-5 rounded bg-slate-100 dark:bg-slate-800 border-2 border-transparent transition-all"></div>
+<span class="text-sm font-medium">Brinquedos</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="size-5 rounded bg-slate-100 dark:bg-slate-800 border-2 border-transparent transition-all"></div>
+<span class="text-sm font-medium">Acessórios</span>
+</label>
+</div>
+</div>
+<!-- Diaper Size Tags -->
+<div>
+<p class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wide">Tamanho da Fralda</p>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-primary text-white text-xs font-bold">RN</button>
+<button class="px-3 py-1.5 rounded-lg bg-brand-mint text-slate-700 text-xs font-bold hover:bg-brand-mint/80">P</button>
+<button class="px-3 py-1.5 rounded-lg bg-brand-mint text-slate-700 text-xs font-bold hover:bg-brand-mint/80">M</button>
+<button class="px-3 py-1.5 rounded-lg bg-brand-mint text-slate-700 text-xs font-bold hover:bg-brand-mint/80">G</button>
+<button class="px-3 py-1.5 rounded-lg bg-brand-mint text-slate-700 text-xs font-bold hover:bg-brand-mint/80">GG</button>
+<button class="px-3 py-1.5 rounded-lg bg-brand-mint text-slate-700 text-xs font-bold hover:bg-brand-mint/80">XG</button>
+</div>
+</div>
+<!-- Other Filters Placeholder -->
+<div class="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-4">
+<div class="flex items-center justify-between cursor-pointer hover:text-primary transition-colors">
+<span class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-lg">sell</span> Marca</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer hover:text-primary transition-colors">
+<span class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-lg">verified</span> Condição</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer hover:text-primary transition-colors">
+<span class="text-sm font-bold flex items-center gap-2"><span class="material-symbols-outlined text-lg">near_me</span> Distância</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-bold tracking-tight">Produtos Disponíveis Próximo a Você</h2>
+<div class="flex items-center gap-2 text-sm text-slate-500">
+                            Ordenar por: <span class="font-bold text-slate-900 dark:text-slate-100 cursor-pointer">Mais Recentes <span class="material-symbols-outlined text-xs align-middle">expand_more</span></span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Product Card 1 -->
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Package of Pampers Premium Care diapers size M" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBly_6X8f7MXxts_sA89Yg6OPTQ6Vj-8cNZ3RWl1HoDChQErL3GEN1IB3EeYvme3m_S4Gqn44c7ddN-4W7mjjTc-l0x8rsKXHDBuPArvLREsAQ5FQa1Cxv2jm8rw3aZr0WEcZ7bns_10DRuRBtpJUlmO6Yj2kkvhVvEwXQP2SxFUv_tZC6nWjjOsMn-0UbQ2Rlw_YUd-BSjX8ZTq8wVfhQXG9H-Mzs_wMOp04TVA-ulYw4lCczpXq7EepR7SebLoUejNl6usnQcq1w"/>
+<div class="absolute top-3 right-3">
+<button class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-3 left-3 px-3 py-1 rounded-lg bg-brand-blue text-blue-600 text-xs font-bold uppercase">Novo</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-1 line-clamp-2 leading-tight group-hover:text-primary transition-colors">Fraldas Pampers Premium Care M - 60 Unidades</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mb-4">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Vila Madalena, SP</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-white dark:border-slate-900 bg-brand-pink overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small profile icon of a person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRlhh7bWrFckYZb2ZOGqHQRY8f0QYwEooNsjU5KglNeSobG5mfyV_hewRDS1hFzlP5R6OkDVnERC0nGQi1rALRKI11jxZUEJHUy9qU8VxpKF9-J4_V4bV8b-KvKOhIqY_aMFTkZU2ZnAFS2TSJcl5ySZqd0ujw6sdttqKawT2jdrifOrAc_5NwPmpyzjEq2jcX2r69OQiMWQwDV1FdGXoOKxwyhsh8y8da4300R2ugiZREwSGqq0SNowGXVcpwyau30SIEwvXplGc"/>
+</div>
+</div>
+<button class="px-4 py-2 bg-brand-mint text-primary rounded-xl font-bold text-xs hover:bg-primary hover:text-white transition-all">
+                                        Tenho Interesse
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern grey baby stroller in good condition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLoFbz_MXpwoKnHdI9k2Tp0Fnj3_CrC8DXNksRx_Bpe-Lyjw7_x9gBE9YJ9rUm7MjiVuOqjLrhz_7jm4larlpP9Ledop3SdWebnsTb3f5pWJfpwmHCCsXFAPC3RNSOpo6QBMw9cVGwPCVT9sUaprRjf-P0bOyL0fX08b8kZKsPjasQzjW2CbC4Muf74jOTIoR_nI7VLIzOvJa-FBUyEqIJvE5sOjwrbxPFv6Ekvakny4cumWRv13RjskJYUjjmVAVYBAiuuWBUzWA"/>
+<div class="absolute top-3 right-3">
+<button class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-3 left-3 px-3 py-1 rounded-lg bg-brand-pink text-pink-600 text-xs font-bold uppercase">Seminovo</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-1 line-clamp-2 leading-tight group-hover:text-primary transition-colors">Carrinho Chicco Bravo Air Travel System</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mb-4">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Pinheiros, SP</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-white dark:border-slate-900 bg-brand-blue overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small profile icon of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhGHTZ0ea2n2ahtr9zN3DE71R5Q7ob9Tc6X0MQrCESRbZ-aseqddsVV_u44lmgpPw9REDUGY4MVJ5gZs-kpa1bsOUPY2dfdOydTkpEfDzG8r8z851-1kpziZ-GBftbiZixHrLhaSkSG6ToGMm_GY0MVSsA-BKJ1xrNgmtXkbiYlLbcFJGmaMMLz3EdmsO2m9IrzYVJIbEOR4lkIxL4NdkO8D1_O-NMA2pNPQs6uN0ez-yCe_ZuRhtZUKjZHXcy85SmoIUEepLNDi4"/>
+</div>
+</div>
+<button class="px-4 py-2 bg-brand-mint text-primary rounded-xl font-bold text-xs hover:bg-primary hover:text-white transition-all">
+                                        Tenho Interesse
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pack of white baby onesies neatly folded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByAp4Mx0VvadKIHrWnNn7J-iJTW9e5KjdTaIbo_Q9BnF7U54Cdx0Bb5itQLJG4yS8DD0QvK5cgweLZLFFRc-aNesxmNlSPzaO7ZQmIqw5E8yWNeolFQoRCNsLDa-V9-qEgvNrMBPTenAoE_QhkdidRo_iGJNSJatB2Z9LSOrUsh8jDr3oFZFmjCu4kOJWA7nDBHHpxgfNdc_vfYNoXU7zgkhistbtw26qQvkp7DL8AiKTnnykBLUMOt2bGbMgouC44QYbzxV0STno"/>
+<div class="absolute top-3 right-3">
+<button class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-3 left-3 px-3 py-1 rounded-lg bg-brand-mint text-teal-600 text-xs font-bold uppercase">Pouco Uso</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-1 line-clamp-2 leading-tight group-hover:text-primary transition-colors">Kit 5 Bodies Carter's Algodão - Tamanho 6M</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mb-4">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Moema, SP</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-white dark:border-slate-900 bg-brand-mint overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small profile icon of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCURQrTChwAoH_ms8U9oy9qScZ3vNttPzrBfZQMSKC8YPgJHRKtMHLXIMF3IiR9Th9rsQ3-sMUnZlpz1ba33eSXNuuplGsCGFm6cyF_qaCvMh0hBQbx2A25APoFqLgaPEhdlxTb-APcHMOL9U35P5Cv6TVQvKEl6mH8-gYKWCzWQBxDeq-oh3rG_bfqeTtaWwu2FjjMVQ2fKs2gqT0L8Iy9BUsNwsLBZjVMmPeiR-QhduLMgH5Vm-LoCkkiL4InjIbEZAI_QWrnMn0"/>
+</div>
+</div>
+<button class="px-4 py-2 bg-brand-mint text-primary rounded-xl font-bold text-xs hover:bg-primary hover:text-white transition-all">
+                                        Tenho Interesse
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+<div class="aspect-[4/3] relative overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Digital baby monitor with screen and camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQuZ6UViNKR3adDnxCz767W8BnyRJVZjAchVE6H3fav38kBlHlAnbGxSpD00ab3ENA8ADx2dhDdRNNZqRU-4Y6krqTT_f5BdMjFWP4_xkF8FzM80beGuo6Y0ko4ZQS2tSI8z_IFFpWHj96a75TZyCx0kka9dtr45uUekcLiwOFFc8p3nsI3fM-76LH3z_uxMbpDUv4iDe0qSubrnqeoQ-V2pfXhnl1anQXgVts5tVLmBi9qJXDWyxiVhySn1hvFv2ypJ6SDs26wAE"/>
+<div class="absolute top-3 right-3">
+<button class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-3 left-3 px-3 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-bold uppercase">Usado</div>
+</div>
+<div class="p-5">
+<h3 class="font-bold text-lg mb-1 line-clamp-2 leading-tight group-hover:text-primary transition-colors">Babá Eletrônica Motorola com Vídeo e Visão Noturna</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mb-4">
+<span class="material-symbols-outlined text-lg">location_on</span>
+<span>Santo Amaro, SP</span>
+</div>
+<div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex -space-x-2">
+<div class="size-8 rounded-full border-2 border-white dark:border-slate-900 bg-brand-pink overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Small profile icon of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-YPnmqVxnnrwGBjYGQ77aClYO67MAC2Fp7OUlRqCqnuVl37HX0heKARZ13J7bsuAz4OElZ-t07X94-LTDUdvFMmJB_NhqDj4xehawlriMLEBorCVccuaXr3AlThyKpH4D5ufShyKsibcanV2eXydrwZR-3_x1QTOe_SEjaTUGnXovbGwXN4Z98-33yFTu337H-O0FgS4YBXj_RHy1Ni8fg8hOqgUwNsqs0XOqL9qZv8Pt22hRbPq-A2Tipoo8oMeFuFVcJhy1NPU"/>
+</div>
+</div>
+<button class="px-4 py-2 bg-brand-mint text-primary rounded-xl font-bold text-xs hover:bg-primary hover:text-white transition-all">
+                                        Tenho Interesse
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="px-8 py-3 bg-white dark:bg-slate-800 border-2 border-primary/20 text-primary font-bold rounded-xl hover:bg-primary hover:text-white transition-all">
+                            Carregar mais itens
+                        </button>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-12 px-10 mt-20">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1 space-y-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-2xl font-bold">child_care</span>
+<h2 class="text-lg font-black tracking-tight text-slate-900 dark:text-slate-100">Permutas Baby</h2>
+</div>
+<p class="text-sm text-slate-500 leading-relaxed">
+                        Conectando famílias para uma maternidade mais colaborativa e sustentável.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold mb-4">Sobre</h4>
+<ul class="space-y-2 text-sm text-slate-500"><li><a class="hover:text-primary transition-colors" href="#about">Sobre</a></li><li><a class="hover:text-primary transition-colors" href="#">Como funciona</a></li></ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Ajuda</h4>
+<ul class="space-y-2 text-sm text-slate-500"><li><a class="hover:text-primary transition-colors" href="#help">Ajuda</a></li><li><a class="hover:text-primary transition-colors" href="#">Termos de uso</a></li></ul>
+</div>
+<div>
+<h4 class="font-bold mb-4">Siga-nos</h4>
+<div class="flex gap-4">
+<a class="size-10 rounded-full bg-brand-mint flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">share</span>
+</a>
+<a class="size-10 rounded-full bg-brand-blue flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-xs text-slate-400">
+                © 2024 Permutas Baby. Todos os direitos reservados. Feito com amor para papais e mamães.
+            </div>
+</footer>
+</div>
+</body></html>

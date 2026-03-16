@@ -1,0 +1,115 @@
+{% extends 'baby/base_baby.html' %}
+
+{% block title %}Todos os Produtos - Permutas Baby{% endblock %}
+
+{% block content %}
+<div class="flex flex-col lg:flex-row gap-10">
+    <!-- Sidebar Filters -->
+    <aside class="w-full lg:w-64 flex-shrink-0">
+        {% include 'baby/_filtros.html' %}
+    </aside>
+    
+    <!-- Product Grid -->
+    <div class="flex-1">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold tracking-tight">Todos os Produtos</h2>
+            <div class="flex items-center gap-2 text-sm text-slate-500">
+                Ordenar por: 
+                <form method="get" class="inline">
+                    {% for key, value in filtros.items %}
+                        {% if key != 'ordenacao' and value %}
+                            <input type="hidden" name="{{ key }}" value="{{ value }}">
+                        {% endif %}
+                    {% endfor %}
+                    <select name="ordenacao" onchange="this.form.submit()" class="font-bold text-slate-900 dark:text-slate-100 bg-transparent border-none cursor-pointer">
+                        <option value="-criado_em" {% if request.GET.ordenacao == '-criado_em' or not request.GET.ordenacao %}selected{% endif %}>Mais Recentes</option>
+                        <option value="criado_em" {% if request.GET.ordenacao == 'criado_em' %}selected{% endif %}>Mais Antigos</option>
+                        <option value="titulo" {% if request.GET.ordenacao == 'titulo' %}selected{% endif %}>Ordem Alfabética</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        
+        {% if produtos %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                {% for produto in produtos %}
+                    <a href="{% url 'baby:produto_detalhe' pk=produto.pk slug=produto.slug %}" class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+                        <div class="aspect-[4/3] relative overflow-hidden">
+                            {% if produto.imagem_principal %}
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ produto.imagem_principal.url }}" alt="{{ produto.titulo }}"/>
+                            {% else %}
+                                <div class="w-full h-full bg-slate-100 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-4xl text-slate-300">image</span>
+                                </div>
+                            {% endif %}
+                            <div class="absolute top-3 right-3">
+                                <button class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+                                    <span class="material-symbols-outlined">favorite</span>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-3 left-3 px-3 py-1 rounded-lg text-xs font-bold uppercase
+                                {% if produto.condicao == 'novo' %}bg-brand-blue text-blue-600
+                                {% elif produto.condicao == 'seminovo' %}bg-brand-pink text-pink-600
+                                {% elif produto.condicao == 'usado_otimo' %}bg-brand-mint text-teal-600
+                                {% else %}bg-slate-100 text-slate-600{% endif %}">
+                                {{ produto.get_condicao_display }}
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-1 line-clamp-2 leading-tight group-hover:text-primary transition-colors">{{ produto.titulo }}</h3>
+                            {% if produto.categoria %}
+                                <p class="text-sm text-slate-500 mb-2">{{ produto.categoria.nome }}</p>
+                            {% endif %}
+                            <div class="flex items-center gap-1 text-slate-500 text-sm mb-4">
+                                <span class="material-symbols-outlined text-lg">location_on</span>
+                                <span>{{ produto.cidade }}, {{ produto.estado }}</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+                                <div class="flex -space-x-2">
+                                    {% if produto.usuario.foto %}
+                                        <img class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 object-cover" src="{{ produto.usuario.foto.url }}" alt=""/>
+                                    {% else %}
+                                        <div class="size-8 rounded-full border-2 border-white dark:border-slate-900 bg-brand-mint flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-primary text-sm">person</span>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <span class="px-4 py-2 bg-brand-mint text-primary rounded-xl font-bold text-xs hover:bg-primary hover:text-white transition-all">
+                                    Ver Detalhes
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+            
+            <!-- Pagination -->
+            {% if page_obj.has_other_pages %}
+                <div class="mt-12 flex justify-center gap-2">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1" class="px-4 py-2 bg-white border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-colors">&laquo; Primeira</a>
+                        <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 bg-white border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-colors">&larr; Anterior</a>
+                    {% endif %}
+                    
+                    <span class="px-4 py-2 text-slate-500">
+                        Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                    </span>
+                    
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 bg-white border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-colors">Próxima &rarr;</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}" class="px-4 py-2 bg-white border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-colors">Última &raquo;</a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="text-center py-12">
+                <span class="material-symbols-outlined text-6xl text-slate-300 mb-4">inventory_2</span>
+                <p class="text-slate-500">Nenhum produto encontrado com os filtros selecionados.</p>
+                <a href="{% url 'baby:lista_produtos' %}" class="inline-block mt-4 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors">
+                    Ver todos os produtos
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

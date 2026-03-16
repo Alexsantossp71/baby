@@ -1,0 +1,776 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "email": "admin@example.com",
+      "password": "pbkdf2_sha256$1000000$Yp6iqmKdX4CaQRt8ISH7wn$YOPjDY1eQSyBuD3b/DWLPgU+l1byZhdddrVLzc1jX9Q=",
+      "is_active": true,
+      "date_joined": "2026-03-07 17:43:16.467554",
+      "last_login": null
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "username": "teste",
+      "email": "",
+      "password": "pbkdf2_sha256$1000000$zieM7XrWSXSZVj2CDU6mrK$aYJT+7Pw5PbTTP9Y405kz1u9MqOmrnpGbVzok3UBM1A=",
+      "is_active": true,
+      "date_joined": "2026-03-08 11:59:54.899455",
+      "last_login": "2026-03-08 11:59:56.062639"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "username": "joao_silva",
+      "email": "joao@email.com",
+      "password": "pbkdf2_sha256$1000000$WawR5Kv7Acz4uFS1O5M8pP$zLWaJ9EUl7D0yaUNG/1PZaVQAmyRLkM/kGV1VlFZCA8=",
+      "is_active": true,
+      "date_joined": "2026-03-08 12:50:39.641165",
+      "last_login": "2026-03-08 13:32:52.082054"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "username": "maria_santos",
+      "email": "maria@email.com",
+      "password": "pbkdf2_sha256$1000000$kFZdWoTulwHD91by1LkL21$m+UmOGQuQsIXzWcVEDeExeTPX/Zl8nKqa3ZNcITSmc8=",
+      "is_active": true,
+      "date_joined": "2026-03-08 12:50:41.348147",
+      "last_login": "2026-03-08 13:48:26.814493"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "username": "pedro_oliveira",
+      "email": "pedro@email.com",
+      "password": "pbkdf2_sha256$1000000$E6am8gnXKaczcogdy8YH9O$snoPNZ4vyAsHC5OArp0gdxyUpKfNFJIpxQsHn+pQAac=",
+      "is_active": true,
+      "date_joined": "2026-03-08 12:50:42.788733",
+      "last_login": "2026-03-08 13:54:01.592252"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "username": "ana_ferreira",
+      "email": "ana@email.com",
+      "password": "pbkdf2_sha256$1000000$p1pHtkE2zDNV4AyWulYywZ$1eTbQ4riyQ3ytxSOT1wvup9sE7MLF55vQZk9UhSfMn0=",
+      "is_active": true,
+      "date_joined": "2026-03-08 12:50:44.175800",
+      "last_login": "2026-03-08 13:16:30.195898"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+      "username": "carlos_souza",
+      "email": "carlos@email.com",
+      "password": "pbkdf2_sha256$1000000$X4WKaumHu4FVBkq5uDnGZv$m39YInkN6Qee3l/5BSLfWwMpQ/cJMDJERxHbEtS7I0k=",
+      "is_active": true,
+      "date_joined": "2026-03-08 12:50:45.669963",
+      "last_login": "2026-03-08 13:17:50.714049"
+    }
+  },
+  {
+    "model": "core.perfil",
+    "pk": 1,
+    "fields": {
+      "usuario_id": 2,
+      "telefone": "",
+      "cidade": "",
+      "estado": "",
+      "bio": ""
+    }
+  },
+  {
+    "model": "core.perfil",
+    "pk": 2,
+    "fields": {
+      "usuario_id": 3,
+      "telefone": "",
+      "cidade": "",
+      "estado": "",
+      "bio": ""
+    }
+  },
+  {
+    "model": "core.perfil",
+    "pk": 3,
+    "fields": {
+      "usuario_id": 4,
+      "telefone": "",
+      "cidade": "",
+      "estado": "",
+      "bio": ""
+    }
+  },
+  {
+    "model": "core.perfil",
+    "pk": 4,
+    "fields": {
+      "usuario_id": 5,
+      "telefone": "",
+      "cidade": "",
+      "estado": "",
+      "bio": ""
+    }
+  },
+  {
+    "model": "core.perfil",
+    "pk": 5,
+    "fields": {
+      "usuario_id": 6,
+      "telefone": "",
+      "cidade": "",
+      "estado": "",
+      "bio": ""
+    }
+  },
+  {
+    "model": "core.perfil",
+    "pk": 6,
+    "fields": {
+      "usuario_id": 7,
+      "telefone": "",
+      "cidade": "",
+      "estado": "",
+      "bio": ""
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 1,
+    "fields": {
+      "titulo": "primeiro teste",
+      "descricao": "o promeiro teste",
+      "categoria_id": 1,
+      "condicao": "novo",
+      "foto": "produtos/Captura_de_tela_2026-02-17_222931.png",
+      "valor_estimado": "100",
+      "usuario_id": 2,
+      "status": "trocado",
+      "cidade": "Santos",
+      "estado": "SP",
+      "criado_em": "2026-03-08 12:17:58.278580",
+      "atualizado_em": "2026-03-08 13:18:04.356348"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 2,
+    "fields": {
+      "titulo": "iPhone 13 Pro Max 256GB",
+      "descricao": "iPhone em excelente estado, com carregador e capinha.",
+      "categoria_id": 1,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "4500",
+      "usuario_id": 3,
+      "status": "disponivel",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "criado_em": "2026-03-08 12:50:40.641127",
+      "atualizado_em": "2026-03-08 12:50:40.641127"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 3,
+    "fields": {
+      "titulo": "MacBook Air M1 2020",
+      "descricao": "Pouco usado, funciona perfeitamente.",
+      "categoria_id": 2,
+      "condicao": "usado_otimo",
+      "foto": "",
+      "valor_estimado": "5500",
+      "usuario_id": 3,
+      "status": "disponivel",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "criado_em": "2026-03-08 12:50:40.774412",
+      "atualizado_em": "2026-03-08 12:50:40.774412"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 4,
+    "fields": {
+      "titulo": "Samsung Galaxy S21 Ultra",
+      "descricao": "Estado de novo, sem riscos.",
+      "categoria_id": 4,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "3200",
+      "usuario_id": 3,
+      "status": "disponivel",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "criado_em": "2026-03-08 12:50:40.934297",
+      "atualizado_em": "2026-03-08 12:50:40.934297"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 5,
+    "fields": {
+      "titulo": "Apple Watch Series 7",
+      "descricao": "Relógio inteligente, caixa original.",
+      "categoria_id": 3,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "1800",
+      "usuario_id": 3,
+      "status": "disponivel",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "criado_em": "2026-03-08 12:50:41.081890",
+      "atualizado_em": "2026-03-08 12:50:41.081890"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 6,
+    "fields": {
+      "titulo": "Sony WH-1000XM4",
+      "descricao": "Fone bluetooth top de linha.",
+      "categoria_id": 5,
+      "condicao": "usado_bom",
+      "foto": "",
+      "valor_estimado": "900",
+      "usuario_id": 3,
+      "status": "disponivel",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "criado_em": "2026-03-08 12:50:41.201399",
+      "atualizado_em": "2026-03-08 12:50:41.201399"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 7,
+    "fields": {
+      "titulo": "Vestido Floral Verão",
+      "descricao": "Lindissimo vestido floral, tamanho M.",
+      "categoria_id": 1,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "150",
+      "usuario_id": 4,
+      "status": "disponivel",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "criado_em": "2026-03-08 12:50:42.014905",
+      "atualizado_em": "2026-03-08 12:50:42.014905"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 8,
+    "fields": {
+      "titulo": "Jaqueta de Couro",
+      "descricao": "Jaqueta autêntica de couro, tamanho G.",
+      "categoria_id": 2,
+      "condicao": "usado_bom",
+      "foto": "",
+      "valor_estimado": "350",
+      "usuario_id": 4,
+      "status": "disponivel",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "criado_em": "2026-03-08 12:50:42.175341",
+      "atualizado_em": "2026-03-08 12:50:42.175341"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 9,
+    "fields": {
+      "titulo": "Tênis Nike Air Max",
+      "descricao": "Tamanho 38, quase novo.",
+      "categoria_id": 4,
+      "condicao": "usado_otimo",
+      "foto": "",
+      "valor_estimado": "280",
+      "usuario_id": 4,
+      "status": "disponivel",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "criado_em": "2026-03-08 12:50:42.308670",
+      "atualizado_em": "2026-03-08 12:50:42.308670"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 10,
+    "fields": {
+      "titulo": "Bolsa Feminina Gucci",
+      "descricao": "Bolsa original,很少 usada.",
+      "categoria_id": 3,
+      "condicao": "usado_otimo",
+      "foto": "",
+      "valor_estimado": "1200",
+      "usuario_id": 4,
+      "status": "disponivel",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "criado_em": "2026-03-08 12:50:42.455122",
+      "atualizado_em": "2026-03-08 12:50:42.455122"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 11,
+    "fields": {
+      "titulo": "Camiseta Olympikus",
+      "descricao": "Camiseta esportiva, tamanho M.",
+      "categoria_id": 5,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "80",
+      "usuario_id": 4,
+      "status": "disponivel",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ",
+      "criado_em": "2026-03-08 12:50:42.641922",
+      "atualizado_em": "2026-03-08 12:50:42.641922"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 12,
+    "fields": {
+      "titulo": "Sofá 3 Lugares Cinza",
+      "descricao": "Sofá novo, na caixa.",
+      "categoria_id": 1,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "1800",
+      "usuario_id": 5,
+      "status": "disponivel",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "criado_em": "2026-03-08 12:50:43.496245",
+      "atualizado_em": "2026-03-08 12:50:43.496245"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 13,
+    "fields": {
+      "titulo": "Mesa de Jantar 6 Cadeiras",
+      "descricao": "Mesa de madeira maciça.",
+      "categoria_id": 2,
+      "condicao": "usado_bom",
+      "foto": "",
+      "valor_estimado": "950",
+      "usuario_id": 5,
+      "status": "trocado",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "criado_em": "2026-03-08 12:50:43.629393",
+      "atualizado_em": "2026-03-08 13:54:25.967245"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 14,
+    "fields": {
+      "titulo": "Cama Queen Size com Colchão",
+      "descricao": "Cama nova, nunca usada.",
+      "categoria_id": 4,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "2200",
+      "usuario_id": 5,
+      "status": "disponivel",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "criado_em": "2026-03-08 12:50:43.775761",
+      "atualizado_em": "2026-03-08 12:50:43.775761"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 15,
+    "fields": {
+      "titulo": "Armário de Cozinha da melhor qualidade",
+      "descricao": "Armário novo, desmontado.",
+      "categoria_id": 3,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "1000",
+      "usuario_id": 5,
+      "status": "disponivel",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "criado_em": "2026-03-08 12:50:43.909220",
+      "atualizado_em": "2026-03-08 13:58:33.378861"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 16,
+    "fields": {
+      "titulo": "Escrivaninha Escritório",
+      "descricao": "Mesa de escritório, pouco usada.",
+      "categoria_id": 5,
+      "condicao": "usado_otimo",
+      "foto": "",
+      "valor_estimado": "380",
+      "usuario_id": 5,
+      "status": "disponivel",
+      "cidade": "Belo Horizonte",
+      "estado": "MG",
+      "criado_em": "2026-03-08 12:50:44.069032",
+      "atualizado_em": "2026-03-08 12:50:44.069032"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 17,
+    "fields": {
+      "titulo": "Coleção Harry Potter Completa",
+      "descricao": "Todos os 7 livros, edição hardcover.",
+      "categoria_id": 1,
+      "condicao": "usado_bom",
+      "foto": "",
+      "valor_estimado": "280",
+      "usuario_id": 6,
+      "status": "trocado",
+      "cidade": "Porto Alegre",
+      "estado": "RS",
+      "criado_em": "2026-03-08 12:50:44.922918",
+      "atualizado_em": "2026-03-08 13:18:06.783119"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 18,
+    "fields": {
+      "titulo": "Design Patterns - Livros Técnicos",
+      "descricao": "Livros de programação, excelente estado.",
+      "categoria_id": 2,
+      "condicao": "usado_otimo",
+      "foto": "",
+      "valor_estimado": "190",
+      "usuario_id": 6,
+      "status": "disponivel",
+      "cidade": "Porto Alegre",
+      "estado": "RS",
+      "criado_em": "2026-03-08 12:50:45.097654",
+      "atualizado_em": "2026-03-08 12:50:45.097654"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 19,
+    "fields": {
+      "titulo": "Enciclopédia Britannica",
+      "descricao": "Edição 2010, completa.",
+      "categoria_id": 4,
+      "condicao": "usado_regular",
+      "foto": "",
+      "valor_estimado": "450",
+      "usuario_id": 6,
+      "status": "disponivel",
+      "cidade": "Porto Alegre",
+      "estado": "RS",
+      "criado_em": "2026-03-08 12:50:45.243056",
+      "atualizado_em": "2026-03-08 12:50:45.243056"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 20,
+    "fields": {
+      "titulo": "Box Senac - Livros de Diseño",
+      "descricao": "Coleção completa de design.",
+      "categoria_id": 3,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "320",
+      "usuario_id": 6,
+      "status": "disponivel",
+      "cidade": "Porto Alegre",
+      "estado": "RS",
+      "criado_em": "2026-03-08 12:50:45.403111",
+      "atualizado_em": "2026-03-08 12:50:45.403111"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 21,
+    "fields": {
+      "titulo": "Mangás Naruto Completo",
+      "descricao": "Todos os volumes,非常好的 estado.",
+      "categoria_id": 5,
+      "condicao": "usado_bom",
+      "foto": "",
+      "valor_estimado": "550",
+      "usuario_id": 6,
+      "status": "disponivel",
+      "cidade": "Porto Alegre",
+      "estado": "RS",
+      "criado_em": "2026-03-08 12:50:45.536339",
+      "atualizado_em": "2026-03-08 12:50:45.536339"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 22,
+    "fields": {
+      "titulo": "Bicicleta Mountain Bike",
+      "descricao": "Bicicleta 18 marchas, poco usada.",
+      "categoria_id": 1,
+      "condicao": "usado_otimo",
+      "foto": "",
+      "valor_estimado": "1200",
+      "usuario_id": 7,
+      "status": "trocado",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "criado_em": "2026-03-08 12:50:46.323689",
+      "atualizado_em": "2026-03-08 13:18:06.909578"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 23,
+    "fields": {
+      "titulo": "Raquete de Tênis Wilson",
+      "descricao": "Raquete profissional.",
+      "categoria_id": 2,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "450",
+      "usuario_id": 7,
+      "status": "disponivel",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "criado_em": "2026-03-08 12:50:46.483513",
+      "atualizado_em": "2026-03-08 12:50:46.483513"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 24,
+    "fields": {
+      "titulo": "Halteres 20kg Par",
+      "descricao": "Par de halteres reguláveis.",
+      "categoria_id": 4,
+      "condicao": "usado_bom",
+      "foto": "",
+      "valor_estimado": "280",
+      "usuario_id": 7,
+      "status": "disponivel",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "criado_em": "2026-03-08 12:50:46.603485",
+      "atualizado_em": "2026-03-08 12:50:46.603485"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 25,
+    "fields": {
+      "titulo": "Chuteira Nike Mercurial",
+      "descricao": "Chuteira campo, tamanho 42.",
+      "categoria_id": 3,
+      "condicao": "novo",
+      "foto": "",
+      "valor_estimado": "350",
+      "usuario_id": 7,
+      "status": "disponivel",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "criado_em": "2026-03-08 12:50:46.723526",
+      "atualizado_em": "2026-03-08 12:50:46.723526"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 26,
+    "fields": {
+      "titulo": "bola de Basquete Spalding",
+      "descricao": "Bola oficial NBA.",
+      "categoria_id": 5,
+      "condicao": "usado_otimo",
+      "foto": "",
+      "valor_estimado": "180",
+      "usuario_id": 7,
+      "status": "disponivel",
+      "cidade": "Curitiba",
+      "estado": "PR",
+      "criado_em": "2026-03-08 12:50:46.870383",
+      "atualizado_em": "2026-03-08 12:50:46.870383"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 27,
+    "fields": {
+      "titulo": "testa bom ",
+      "descricao": "o melhor",
+      "categoria_id": 9,
+      "condicao": "usado_regular",
+      "foto": "produtos/Captura_de_tela_2026-02-17_223649.png",
+      "valor_estimado": "20000",
+      "usuario_id": 4,
+      "status": "disponivel",
+      "cidade": "Skashgdjahgjkd",
+      "estado": "SP",
+      "criado_em": "2026-03-08 13:49:22.284427",
+      "atualizado_em": "2026-03-08 13:49:22.284427"
+    }
+  },
+  {
+    "model": "core.produto",
+    "pk": 28,
+    "fields": {
+      "titulo": "janela",
+      "descricao": "muito linda",
+      "categoria_id": 7,
+      "condicao": "usado_bom",
+      "foto": "",
+      "valor_estimado": "100",
+      "usuario_id": 4,
+      "status": "trocado",
+      "cidade": "jhdflkjfhlskadjf",
+      "estado": "SP",
+      "criado_em": "2026-03-08 13:53:00.863115",
+      "atualizado_em": "2026-03-08 13:54:25.822882"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 1,
+    "fields": {
+      "produto_oferecido_id": 1,
+      "produto_desejado_id": 22,
+      "mensagem": "me da isso ai",
+      "status": "aceita",
+      "criado_em": "2026-03-08 13:00:35.519221",
+      "atualizado_em": "2026-03-08 13:18:04.198255"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 2,
+    "fields": {
+      "produto_oferecido_id": 20,
+      "produto_desejado_id": 26,
+      "mensagem": "bom",
+      "status": "rejeitada",
+      "criado_em": "2026-03-08 13:16:51.906107",
+      "atualizado_em": "2026-03-08 13:18:14.706905"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 3,
+    "fields": {
+      "produto_oferecido_id": 17,
+      "produto_desejado_id": 22,
+      "mensagem": "b",
+      "status": "aceita",
+      "criado_em": "2026-03-08 13:17:26.387040",
+      "atualizado_em": "2026-03-08 13:18:06.582887"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 4,
+    "fields": {
+      "produto_oferecido_id": 4,
+      "produto_desejado_id": 21,
+      "mensagem": "ligue",
+      "status": "pendente",
+      "criado_em": "2026-03-08 13:37:04.547338",
+      "atualizado_em": "2026-03-08 13:37:04.547338"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 5,
+    "fields": {
+      "produto_oferecido_id": 4,
+      "produto_desejado_id": 25,
+      "mensagem": "bs",
+      "status": "pendente",
+      "criado_em": "2026-03-08 13:37:42.203220",
+      "atualizado_em": "2026-03-08 13:37:42.203220"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 6,
+    "fields": {
+      "produto_oferecido_id": 4,
+      "produto_desejado_id": 14,
+      "mensagem": "fg",
+      "status": "rejeitada",
+      "criado_em": "2026-03-08 13:38:01.038095",
+      "atualizado_em": "2026-03-08 13:54:20.793582"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 7,
+    "fields": {
+      "produto_oferecido_id": 27,
+      "produto_desejado_id": 25,
+      "mensagem": "dasd",
+      "status": "pendente",
+      "criado_em": "2026-03-08 13:49:57.547576",
+      "atualizado_em": "2026-03-08 13:49:57.547576"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 8,
+    "fields": {
+      "produto_oferecido_id": 11,
+      "produto_desejado_id": 19,
+      "mensagem": "sadsd",
+      "status": "pendente",
+      "criado_em": "2026-03-08 13:50:14.619238",
+      "atualizado_em": "2026-03-08 13:50:14.619238"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 9,
+    "fields": {
+      "produto_oferecido_id": 28,
+      "produto_desejado_id": 13,
+      "mensagem": "ahdjhasfdjhgas",
+      "status": "aceita",
+      "criado_em": "2026-03-08 13:53:33.449200",
+      "atualizado_em": "2026-03-08 13:54:25.619359"
+    }
+  },
+  {
+    "model": "core.propostatroca",
+    "pk": 10,
+    "fields": {
+      "produto_oferecido_id": 15,
+      "produto_desejado_id": 23,
+      "mensagem": "aertf",
+      "status": "pendente",
+      "criado_em": "2026-03-08 13:57:40.456291",
+      "atualizado_em": "2026-03-08 13:57:40.456291"
+    }
+  }
+]

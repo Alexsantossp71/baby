@@ -1,0 +1,99 @@
+{% extends 'baby/base_baby.html' %}
+
+{% block title %}Minhas Trocas - Permutas Baby{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-black mb-8">Minhas Trocas</h1>
+    
+    <!-- Tabs -->
+    <div class="flex gap-4 mb-8 border-b border-slate-200">
+        <a href="?tab=recebidas" class="px-4 py-2 font-bold border-b-2 transition-colors {% if tab == 'recebidas' %}border-primary text-primary{% else %}border-transparent text-slate-500 hover:text-slate-700{% endif %}">
+            Recebidas
+        </a>
+        <a href="?tab=enviadas" class="px-4 py-2 font-bold border-b-2 transition-colors {% if tab == 'enviadas' %}border-primary text-primary{% else %}border-transparent text-slate-500 hover:text-slate-700{% endif %}">
+            Enviadas
+        </a>
+        <a href="?tab=historico" class="px-4 py-2 font-bold border-b-2 transition-colors {% if tab == 'historico' %}border-primary text-primary{% else %}border-transparent text-slate-500 hover:text-slate-700{% endif %}">
+            Histórico
+        </a>
+    </div>
+    
+    {% if propostas %}
+        <div class="space-y-4">
+            {% for proposta in propostas %}
+                <div class="bg-white rounded-xl border border-slate-200 p-4">
+                    <div class="flex items-start gap-4">
+                        <!-- Product Image -->
+                        <div class="w-20 h-20 rounded-lg overflow-hidden bg-slate-100 flex-shrink-0">
+                            {% if proposta.produto_oferecido.imagem_principal %}
+                                <img class="w-full h-full object-cover" src="{{ proposta.produto_oferecido.imagem_principal.url }}" alt=""/>
+                            {% else %}
+                                <div class="w-full h-full flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-slate-300">image</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Info -->
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <p class="text-xs text-slate-500">
+                                        {% if tab == 'recebidas' %}
+                                            De: {{ proposta.proponente.get_full_name|default:proposta.proponente.username }}
+                                        {% else %}
+                                            Para: {{ proposta.proprietario.get_full_name|default:proposta.proprietario.username }}
+                                        {% endif %}
+                                    </p>
+                                    <p class="font-bold">{{ proposta.produto_oferecido.titulo }}</p>
+                                    <p class="text-sm text-slate-500">↔ {{ proposta.produto_desejado.titulo }}</p>
+                                </div>
+                                
+                                <span class="px-3 py-1 rounded-full text-xs font-bold
+                                    {% if proposta.status == 'pendente' %}bg-yellow-100 text-yellow-700
+                                    {% elif proposta.status == 'aceita' %}bg-green-100 text-green-700
+                                    {% elif proposta.status == 'rejeitada' %}bg-red-100 text-red-700
+                                    {% elif proposta.status == 'cancelada' %}bg-slate-100 text-slate-700
+                                    {% else %}bg-blue-100 text-blue-700{% endif %}">
+                                    {{ proposta.get_status_display }}
+                                </span>
+                            </div>
+                            
+                            <p class="text-sm text-slate-600 mt-2">{{ proposta.mensagem|truncatechars:100 }}</p>
+                            
+                            <p class="text-xs text-slate-400 mt-2">{{ proposta.criada_em|date:"d/m/Y H:i" }}</p>
+                            
+                            <!-- Actions -->
+                            {% if tab == 'recebidas' and proposta.status == 'pendente' %}
+                                <div class="flex gap-2 mt-4">
+                                    <form method="post" action="{% url 'baby:aceitar_proposta' proposta.pk %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-xl font-bold text-sm hover:bg-green-600 transition-colors">
+                                            Aceitar
+                                        </button>
+                                    </form>
+                                    <form method="post" action="{% url 'baby:rejeitar_proposta' proposta.pk %}">
+                                        {% csrf_token %}
+                                        <button type="submit" class="px-4 py-2 bg-red-500 text-white rounded-xl font-bold text-sm hover:bg-red-600 transition-colors">
+                                            Rejeitar
+                                        </button>
+                                    </form>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center py-12">
+            <span class="material-symbols-outlined text-6xl text-slate-300 mb-4">swap_horiz</span>
+            <p class="text-slate-500">Nenhuma proposta de troca encontrada.</p>
+            <a href="{% url 'baby:lista_produtos' %}" class="inline-block mt-4 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors">
+                Ver Produtos
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rastreio da Troca - Permutas Baby</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-slate-200 dark:border-slate-800 bg-background-light dark:bg-background-dark px-6 md:px-20 py-4 sticky top-0 z-50">
+<a href="{% url 'baby:home' %}" class="flex items-center gap-4 text-primary">
+<div class="size-8 flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl">baby_changing_station</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-[-0.015em]">Permutas Baby</h2>
+</a>
+<div class="flex flex-1 justify-end gap-8 items-center">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="/baby/">Trocas</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="/accounts/perfil/">Meu Perfil</a>
+</nav>
+<div class="bg-primary/10 rounded-full p-1">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Avatar photo of a smiling woman profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjXwSRFmFck3416GRHr2Az250iclw6LbMNAKlcLcydFRHbgIM4oaVg2rSs9FkEAod36bh-DqzlOfyGLZEyp6M2YtwdRDRI_2sg74TSEd6KcWcZbT8I6WNnBwAHVJA3BZ2dcINLDwU5CJHieNjudk52n1vPBID2LkoE6gvGKV413gSfEC6toMY0orlYVfGiL-2B8B0tqC4dIDIu3Vv6s379kHNVc3_zRaaswcAqajS_mMH_4JV_4SRsKsQdKa5bg0CfO2ZQpXrkpU4");'></div>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto w-full px-6 py-8">
+<!-- Hero Title Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-slate-100 text-4xl font-black leading-tight tracking-[-0.033em]">Rastreio da Troca #PB-88219</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg font-normal">Sua troca com <span class="font-bold text-primary">Marina S.</span> está em andamento</p>
+</div>
+<div class="flex gap-3 w-full md:w-auto">
+<button class="flex-1 md:flex-none min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm font-bold transition-all hover:bg-slate-300 dark:hover:bg-slate-700">
+                        Ver Proposta
+                    </button>
+<button class="flex-1 md:flex-none min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-12 px-6 bg-primary text-white text-sm font-bold transition-all hover:opacity-90 shadow-lg shadow-primary/20">
+                        Confirmar Recebimento
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column (Main Content) -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Itens da Troca -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">inventory_2</span>
+                            Itens da Troca
+                        </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<!-- Your Item -->
+<div class="flex flex-col gap-4 p-4 rounded-xl bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+<div class="w-full aspect-video bg-center bg-no-repeat bg-cover rounded-lg" data-alt="Blue baby woolen shoes on a wooden table" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfIFCZE_Y__ZYHuWfUWsN24Mme1sSkJFSmgstslfhGu_NzTHDFFbw3muJDjchRkAXRXhf0BOdgIIMI84IXJV5B1JoxJJNpup_-xOzQeOcY9cSFOroc5NTSxsh7_pOSrI41qR3E_wvKZik9cIZ0PYcz2YF19VQi6wkD9Gb8cLdIwVf7CYKS9bqgJ6DKZDrE8XDggZZKHLPjrmlKQtxlF9UAZuqXa1eaZZiDpH9iO6ZHrOAWWDO5dA7HQ5bHWxfpWLWEopT3r3WAnuY");'></div>
+<div>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Seu Item</p>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-semibold">Sapatinho de Lã Azul</p>
+<p class="text-slate-500 text-sm">Estado: Novo</p>
+</div>
+</div>
+<!-- Their Item -->
+<div class="flex flex-col gap-4 p-4 rounded-xl bg-background-light dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+<div class="w-full aspect-video bg-center bg-no-repeat bg-cover rounded-lg" data-alt="White organic cotton baby bodysuit" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAN__c_umpyh3lF681B4HyCuzcd6vep_FSdgzNqBDpfqZvo4Htm3sVeiyrmXKjhNeILaTTrw4O6T-bmcvhfWk0n_LQvUHL4vykvQUX6heAie7VkKBxWCSsY3g1o3rRIODuOAFMEajAAkAiR50W5Yx8mfdl3M1PnQN3LEHKoqahw9URMRui1yRDBOiXBCX1h_qJklK9eJq4XVGG0uXhFlVSYvSaJvjR-wUvTQ1aatdiO_IhcJ2YvPTZj7RMS5b8EEX1OrRsZuOS8QcI");'></div>
+<div>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Item da Marina S.</p>
+<p class="text-slate-900 dark:text-slate-100 text-lg font-semibold">Macacão Algodão Orgânico</p>
+<p class="text-slate-500 text-sm">Estado: Excelente</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Status do Envio (Timeline) -->
+<section class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold mb-8 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+                            Status do Envio
+                        </h2>
+<div class="relative pl-8 space-y-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200 dark:before:bg-slate-800">
+<!-- Step 1 (Completed) -->
+<div class="relative">
+<div class="absolute -left-[29px] mt-1 size-5 rounded-full bg-primary border-4 border-white dark:border-slate-900 z-10"></div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 font-bold">Proposta Aceita</p>
+<p class="text-slate-500 text-sm">12 de Outubro, 2023 - 14:30</p>
+</div>
+</div>
+<!-- Step 2 (Completed) -->
+<div class="relative">
+<div class="absolute -left-[29px] mt-1 size-5 rounded-full bg-primary border-4 border-white dark:border-slate-900 z-10"></div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 font-bold">Objeto Postado</p>
+<p class="text-slate-500 text-sm">14 de Outubro, 2023 - 09:15</p>
+</div>
+</div>
+<!-- Step 3 (Current) -->
+<div class="relative">
+<div class="absolute -left-[29px] mt-1 size-5 rounded-full bg-primary ring-4 ring-primary/20 border-4 border-white dark:border-slate-900 z-10 animate-pulse"></div>
+<div>
+<p class="text-primary font-bold">Em Trânsito</p>
+<p class="text-slate-500 text-sm">A caminho do centro de distribuição</p>
+</div>
+</div>
+<!-- Step 4 (Pending) -->
+<div class="relative opacity-40">
+<div class="absolute -left-[29px] mt-1 size-5 rounded-full bg-slate-300 dark:bg-slate-700 border-4 border-white dark:border-slate-900 z-10"></div>
+<div>
+<p class="text-slate-900 dark:text-slate-100 font-bold">Entregue</p>
+<p class="text-slate-500 text-sm">Aguardando chegada</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (Sidebar) -->
+<div class="space-y-6">
+<!-- Tracking Code Card -->
+<div class="bg-primary/5 dark:bg-primary/10 border-2 border-dashed border-primary/30 rounded-xl p-6">
+<p class="text-primary text-xs font-bold uppercase tracking-widest mb-2">Código de Rastreio</p>
+<div class="flex items-center justify-between bg-white dark:bg-slate-800 p-3 rounded-lg border border-primary/20">
+<span class="font-mono text-lg font-bold text-slate-800 dark:text-slate-200">BR9928374102</span>
+<button class="text-primary hover:bg-primary/10 p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+<p class="mt-4 text-xs text-slate-500 text-center italic">Clique no ícone para copiar o código</p>
+</div>
+<!-- Help Section -->
+<div class="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-900 dark:text-slate-100 font-bold text-lg mb-4">Precisa de Ajuda?</h3>
+<p class="text-slate-500 text-sm mb-6">Se tiver qualquer problema com o envio ou com o item recebido, nossa equipe está aqui para ajudar.</p>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-center gap-2 rounded-xl h-11 px-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-bold transition-all hover:opacity-90">
+<span class="material-symbols-outlined text-sm">chat</span>
+                                Falar com Marina S.
+                            </button>
+<button class="w-full flex items-center justify-center gap-2 rounded-xl h-11 px-4 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-bold transition-all hover:bg-slate-50 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined text-sm">support_agent</span>
+                                Suporte Permutas Baby
+                            </button>
+</div>
+</div>
+<!-- Safe Exchange Badge -->
+<div class="flex items-center gap-4 p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-100 dark:border-emerald-900">
+<span class="material-symbols-outlined text-emerald-600 dark:text-emerald-400 text-3xl">verified_user</span>
+<div>
+<p class="text-emerald-800 dark:text-emerald-300 font-bold text-sm">Troca Protegida</p>
+<p class="text-emerald-600 dark:text-emerald-500 text-xs leading-tight">Sua segurança é nossa prioridade em cada permuta.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Space -->
+<footer class="mt-auto py-10 text-center text-slate-400 text-sm border-t border-slate-100 dark:border-slate-800">
+<p>© 2023 Permutas Baby - O desapego consciente para o seu pequeno.</p>
+</footer>
+</div>
+</body></html>

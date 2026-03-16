@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>Criar Conta - Permutas Baby</title>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<header class="w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-2">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+</div>
+<a href="{% url 'baby:home' %}" class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Permutas <span class="text-primary">Baby</span></a>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/sobre/">Sobre</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/ajuda/">Ajuda</a>
+<div class="h-4 w-px bg-slate-300 dark:bg-slate-700"></div>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="/accounts/login/">Entrar</a>
+</nav>
+<div class="md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 via-transparent to-primary/5">
+<div class="max-w-md w-full space-y-8">
+<div class="bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800">
+<div class="text-center mb-8">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Crie sua conta</h2>
+<p class="mt-2 text-slate-500 dark:text-slate-400 text-sm">Junte-se à nossa comunidade de trocas para bebês</p>
+</div>
+
+{% if form.errors %}
+<div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+    {% for field in form %}
+        {% for error in field.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <p>{{ error }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="post" class="space-y-5">
+{% csrf_token %}
+<div>
+<label for="id_username" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Nome</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">person</span>
+<input type="text" name="username" id="id_username" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="Seu Nome" required/>
+</div>
+</div>
+<div>
+<label for="id_email" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">E-mail</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">mail</span>
+<input type="email" name="email" id="id_email" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="exemplo@email.com" required/>
+</div>
+</div>
+<div>
+<label for="id_password" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Senha</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">lock</span>
+<input type="password" name="password" id="id_password" minlength="4" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="********" required/>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="flex items-center h-5">
+<input class="h-5 w-5 text-primary focus:ring-primary/20 border-slate-300 rounded-lg cursor-pointer" id="id_termos" name="termos" type="checkbox" required/>
+</div>
+<label class="text-sm text-slate-500 dark:text-slate-400 leading-snug" for="id_termos">
+                    Eu li e concordo com os <a class="text-primary font-semibold hover:underline" href="#">Termos de Uso</a> e a <a class="text-primary font-semibold hover:underline" href="#">Política de Privacidade</a>.
+                </label>
+</div>
+<button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-4 rounded-xl font-bold text-base transition-all transform hover:scale-[1.01] active:scale-[0.98] shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span>CRIAR CONTA</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<div class="relative py-4">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200 dark:border-slate-800"></div>
+</div>
+<div class="relative flex justify-center text-xs uppercase">
+<span class="bg-white dark:bg-slate-900 px-3 text-slate-500 font-medium">Ou cadastre-se com</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button type="button" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<img alt="Google Logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpAJO7bm0LZuzl8wYJIhu21jVRiJhJlY6MyyagWHv0fHytnT2gCITcXpFQBrmabs3jfWbGjbAQTW-LMs8Oz9Iip44nV5mqQ9YAtvyCUnDOt3rpZn-wg6Uytyu-dJUW9N1d64YVCbdIW-1SsehrlESRMgIhtCvSS_NG4vU-958Q57vVg2n6p1wZvfQ0Jh5aQRee1QpE0Lh3cF82xOvI4ceTUyTl6NEiqxbwSuZ8Adpam0BirAeQ1f12Bprgqn-Lf0Imbt8donY7Pas"/>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Google</span>
+</button>
+<button type="button" class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<svg class="w-5 h-5 text-[#1877F2]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+<span class="text-sm font-semibold text-slate-700 dark:text-slate-300">Facebook</span>
+</button>
+</div>
+</form>
+<p class="mt-8 text-center text-sm text-slate-500 dark:text-slate-400">
+                Já possui uma conta? <a class="text-primary font-bold hover:underline" href="/accounts/login/">Faça login</a>
+</p>
+</div>
+<div class="flex items-center justify-center gap-6 opacity-60">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-xs font-medium">Ambiente Seguro</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">lock</span>
+<span class="text-xs font-medium">Privacidade Garantida</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="py-8 bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 text-center">
+<p class="text-xs text-slate-400 dark:text-slate-600">
+                © 2024 Permutas Baby. Todos os direitos reservados.
+            </p>
+</div>
+</footer>
+</body></html>

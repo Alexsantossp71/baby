@@ -1,0 +1,103 @@
+{% extends 'baby/base_baby.html' %}
+
+{% block title %}Meu Perfil - Permutas Baby{% endblock %}
+
+{% block content %}
+<div style="max-width: 700px; margin: 2rem auto; padding: 0 1rem;">
+    
+    <div style="text-align: center; margin-bottom: 2rem;">
+        <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary-color, #F97316) 0%, #EA580C 100%); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);">
+            {% if user.foto %}
+                <img src="{{ user.foto.url }}" alt="{{ user.username }}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            {% else %}
+                <span style="font-size: 2.5rem; color: white; font-weight: 700;">{{ user.get_initials }}</span>
+            {% endif %}
+        </div>
+        <h2 style="font-size: 1.75rem; font-weight: 700; color: #1e293b; margin-bottom: 0.25rem;">Meu Perfil</h2>
+        <p style="color: #64748b; font-size: 0.95rem;">{{ user.email }}</p>
+    </div>
+    
+    <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); border: 1px solid #e2e8f0;">
+        <form method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            {% csrf_token %}
+            
+            {% if form.errors %}
+                <div style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+                    Por favor, corrija os erros abaixo.
+                </div>
+            {% endif %}
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                    <label for="id_first_name" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Nome</label>
+                    <input id="id_first_name" name="first_name" type="text" value="{{ form.first_name.value|default:'' }}"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        placeholder="Seu nome">
+                </div>
+                <div>
+                    <label for="id_last_name" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Sobrenome</label>
+                    <input id="id_last_name" name="last_name" type="text" value="{{ form.last_name.value|default:'' }}"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        placeholder="Seu sobrenome">
+                </div>
+            </div>
+            
+            <div>
+                <label for="id_telefone" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Telefone</label>
+                <input id="id_telefone" name="telefone" type="text" value="{{ form.telefone.value|default:'' }}"
+                    style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                    placeholder="(11) 99999-9999">
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+                <div>
+                    <label for="id_cidade" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Cidade</label>
+                    <input id="id_cidade" name="cidade" type="text" value="{{ form.cidade.value|default:'' }}"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        placeholder="Sua cidade">
+                </div>
+                <div>
+                    <label for="id_estado" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Estado</label>
+                    <input id="id_estado" name="estado" type="text" value="{{ form.estado.value|default:'' }}" maxlength="2"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        placeholder="SP">
+                </div>
+            </div>
+            
+            <div>
+                <label for="id_bio" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Biografia</label>
+                <textarea id="id_bio" name="bio" rows="3"
+                    style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s; resize: vertical;"
+                    placeholder="Conte um pouco sobre você...">{{ form.bio.value|default:'' }}</textarea>
+            </div>
+            
+            <div>
+                <label for="id_foto" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Foto de Perfil</label>
+                <input id="id_foto" name="foto" type="file" accept="image/*"
+                    style="width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.9rem; font-family: inherit;">
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div>
+                    <label for="id_facebook" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Facebook</label>
+                    <input id="id_facebook" name="facebook" type="text" value="{{ form.facebook.value|default:'' }}"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        placeholder="facebook.com/seuusuario">
+                </div>
+                <div>
+                    <label for="id_instagram" style="display: block; font-weight: 500; color: #475569; margin-bottom: 0.5rem; font-size: 0.9rem;">Instagram</label>
+                    <input id="id_instagram" name="instagram" type="text" value="{{ form.instagram.value|default:'' }}"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        placeholder="@seuusuario">
+                </div>
+            </div>
+            
+            <button type="submit" style="width: 100%; padding: 0.875rem; font-size: 1rem; font-weight: 600; background: linear-gradient(135deg, #F97316 0%, #EA580C 100%); color: white; border: none; border-radius: 10px; cursor: pointer; transition: all 0.2s; font-family: inherit; box-shadow: 0 2px 8px rgba(249, 115, 22, 0.3);"
+                onmouseover="this.style.transform='translateY(-1px)'; this.style.boxShadow='0 4px 12px rgba(249, 115, 22, 0.4)';"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(249, 115, 22, 0.3)';">
+                Salvar Alterações
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

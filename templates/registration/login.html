@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}Entrar - Permutas{% endblock %}
+
+{% block content %}
+<div style="min-height: calc(100vh - 200px); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+    <div style="max-width: 420px; width: 100%;">
+        
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                </svg>
+            </div>
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem;">Entre na sua conta</h2>
+            <p style="color: var(--gray-500); font-size: 0.95rem;">
+                Ou <a href="{% url 'users:register' %}" style="color: var(--primary); font-weight: 500;">crie uma conta</a> se ainda não tem
+            </p>
+        </div>
+        
+        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100);">
+            <form method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                {% csrf_token %}
+                
+                {% if form.non_field_errors %}
+                    <div style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+                        Erro ao fazer login. Verifique suas credenciais.
+                    </div>
+                {% endif %}
+                
+                <div>
+                    <label for="id_username" style="display: block; font-weight: 500; color: var(--gray-700); margin-bottom: 0.5rem; font-size: 0.9rem;">Nome de usuário</label>
+                    <input 
+                        id="id_username" 
+                        name="username" 
+                        type="text" 
+                        required 
+                        value="{{ form.username.value|default:'' }}"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 3px var(--primary-light)';"
+                        onblur="this.style.borderColor='var(--gray-300)'; this.style.boxShadow='none';"
+                    >
+                    {% if form.username.errors %}
+                        <div style="color: var(--danger); font-size: 0.85rem; margin-top: 0.5rem;">{{ form.username.errors|striptags }}</div>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="id_password" style="display: block; font-weight: 500; color: var(--gray-700); margin-bottom: 0.5rem; font-size: 0.9rem;">Senha</label>
+                    <input 
+                        id="id_password" 
+                        name="password" 
+                        type="password" 
+                        required 
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 3px var(--primary-light)';"
+                        onblur="this.style.borderColor='var(--gray-300)'; this.style.boxShadow='none';"
+                    >
+                    {% if form.password.errors %}
+                        <div style="color: var(--danger); font-size: 0.85rem; margin-top: 0.5rem;">{{ form.password.errors|striptags }}</div>
+                    {% endif %}
+                </div>
+                
+                <div style="display: flex; align-items: center; justify-content: between;">
+                    <div style="display: flex; align-items: center;">
+                        <input 
+                            id="id_remember" 
+                            name="remember" 
+                            type="checkbox" 
+                            style="width: 18px; height: 18px; accent-color: var(--primary);"
+                        >
+                        <label for="id_remember" style="margin-left: 0.5rem; font-size: 0.9rem; color: var(--gray-700);">
+                            Lembrar de mim
+                        </label>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem; margin-top: 0.5rem;">
+                    Entrar
+                </button>
+            </form>
+            
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-100); text-align: center;">
+                <p style="font-size: 0.85rem; color: var(--gray-500);">
+                    Esqueceu sua senha? <a href="#" style="color: var(--primary); font-weight: 500;">Recuperar senha</a>
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

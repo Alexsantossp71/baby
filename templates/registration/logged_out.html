@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Sair - Permutas{% endblock %}
+
+{% block content %}
+<div style="min-height: calc(100vh - 200px); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+    <div style="max-width: 420px; width: 100%;">
+        
+        <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                </svg>
+            </div>
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--gray-900); margin-bottom: 1rem;">Você saiu do sistema</h2>
+            <p style="color: var(--gray-600); font-size: 1rem; margin-bottom: 2rem;">
+                Você foi desconectado com sucesso. Para voltar a usar o Permutas, faça login novamente.
+            </p>
+            
+            <a href="{% url 'users:login' %}" style="display: inline-flex; align-items: center; padding: 0.875rem 1.5rem; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 1rem; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3); transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(16, 185, 129, 0.3)';">
+                <svg style="width: 20px; height: 20px; margin-right: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                </svg>
+                Fazer login novamente
+            </a>
+            
+            <div style="margin-top: 1.5rem;">
+                <a href="{% url 'baby:home' %}" style="color: var(--primary); font-weight: 500; font-size: 0.95rem;">
+                    ← Voltar à página inicial
+                </a>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'baby/base_baby.html' %}
+
+{% block title %}Meus Produtos - Permutas Baby{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="flex items-center justify-between mb-8">
+        <h1 class="text-3xl font-black">Meus Produtos</h1>
+        <a href="{% url 'baby:criar_produto' %}" class="px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors">
+            + Novo Anúncio
+        </a>
+    </div>
+    
+    {% if produtos %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for produto in produtos %}
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-[4/3] relative">
+                        {% if produto.imagem_principal %}
+                            <img class="w-full h-full object-cover" src="{{ produto.imagem_principal.url }}" alt="{{ produto.titulo }}"/>
+                        {% else %}
+                            <div class="w-full h-full bg-slate-100 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-slate-300">image</span>
+                            </div>
+                        {% endif %}
+                        <div class="absolute top-3 left-3 px-3 py-1 rounded-lg text-xs font-bold
+                            {% if produto.status == 'disponivel' %}bg-green-100 text-green-700
+                            {% elif produto.status == 'reservado' %}bg-yellow-100 text-yellow-700
+                            {% elif produto.status == 'em_troca' %}bg-blue-100 text-blue-700
+                            {% elif produto.status == 'trocado' %}bg-slate-100 text-slate-700
+                            {% else %}bg-red-100 text-red-700{% endif %}">
+                            {{ produto.get_status_display }}
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold line-clamp-2 mb-2">{{ produto.titulo }}</h3>
+                        <p class="text-sm text-slate-500 mb-2">{{ produto.categoria.nome|default:'Sem categoria' }}</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-slate-500">{{ produto.visualizacoes }} visualizações</span>
+                            <span class="text-slate-500">{{ produto.criado_em|date:"d/m/Y" }}</span>
+                        </div>
+                        <div class="flex gap-2 mt-4">
+                            <a href="{% url 'baby:produto_detalhe' pk=produto.pk slug=produto.slug %}" class="flex-1 px-3 py-2 bg-slate-100 text-slate-700 rounded-xl font-bold text-sm text-center hover:bg-slate-200 transition-colors">
+                                Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center py-12">
+            <span class="material-symbols-outlined text-6xl text-slate-300 mb-4">inventory_2</span>
+            <p class="text-slate-500 mb-4">Você ainda não tem produtos cadastrados.</p>
+            <a href="{% url 'baby:criar_produto' %}" class="inline-block px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors">
+                Criar Primeiro Anúncio
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

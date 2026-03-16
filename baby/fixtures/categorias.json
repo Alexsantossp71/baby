@@ -1,0 +1,80 @@
+[
+    {
+        "model": "baby.categoria",
+        "pk": 1,
+        "fields": {
+            "nome": "Fraldas",
+            "slug": "fraldas",
+            "icone": "sanitizer",
+            "descricao": "Fraldas descartáveis e reutilizáveis para todas as idades",
+            "ordem": 1,
+            "ativa": true,
+            "cor": "#ec5b13"
+        }
+    },
+    {
+        "model": "baby.categoria",
+        "pk": 2,
+        "fields": {
+            "nome": "Roupas",
+            "slug": "roupas",
+            "icone": "checkroom",
+            "descricao": "Bodys, macacões, conjuntos e muito mais",
+            "ordem": 2,
+            "ativa": true,
+            "cor": "#ec5b13"
+        }
+    },
+    {
+        "model": "baby.categoria",
+        "pk": 3,
+        "fields": {
+            "nome": "Brinquedos",
+            "slug": "brinquedos",
+            "icone": "toys",
+            "descricao": "Brinquedos educativos e recreativos",
+            "ordem": 3,
+            "ativa": true,
+            "cor": "#ec5b13"
+        }
+    },
+    {
+        "model": "baby.categoria",
+        "pk": 4,
+        "fields": {
+            "nome": "Acessórios",
+            "slug": "acessorios",
+            "icone": "category",
+            "descricao": "Chupetas, mamadeiras, prendedores e mais",
+            "ordem": 4,
+            "ativa": true,
+            "cor": "#ec5b13"
+        }
+    },
+    {
+        "model": "baby.categoria",
+        "pk": 5,
+        "fields": {
+            "nome": "Carrinhos",
+            "slug": "carrinhos",
+            "icone": "airline_seat_recline_normal",
+            "descricao": "Carrinhos de bebê, cadeirinhas e sling",
+            "ordem": 5,
+            "ativa": true,
+            "cor": "#ec5b13"
+        }
+    },
+    {
+        "model": "baby.categoria",
+        "pk": 6,
+        "fields": {
+            "nome": "Berços",
+            "slug": "bercos",
+            "icone": "child_care",
+            "descricao": "Berços, colchões, guardas e decoração",
+            "ordem": 6,
+            "ativa": true,
+            "cor": "#ec5b13"
+        }
+    }
+]

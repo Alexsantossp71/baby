@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central de Ajuda - Permutas Baby</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<!-- Header / Navigation -->
+<header class="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Permutas Baby</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Trocas</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Comunidade</a>
+<a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary" href="#">Ajuda</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl px-3 py-1.5">
+<span class="material-symbols-outlined text-slate-400 text-xl">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-48 placeholder:text-slate-400" placeholder="Buscar no site..." type="text"/>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary cursor-pointer hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">person</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="bg-slate-50 dark:bg-slate-900/50 py-12 border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-3xl mx-auto px-4 text-center">
+<h1 class="text-4xl font-black text-slate-900 dark:text-white mb-4">Como podemos ajudar?</h1>
+<p class="text-slate-600 dark:text-slate-400 text-lg mb-8">Encontre respostas rápidas sobre trocas, segurança e nossa comunidade.</p>
+<div class="relative max-w-xl mx-auto">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 shadow-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all text-slate-900 dark:text-white" placeholder="Pesquise por temas ou dúvidas (ex: frete, cadastro...)" type="text"/>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="max-w-4xl mx-auto px-4 py-16">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">quiz</span>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Perguntas Frequentes (FAQ)</h2>
+</div>
+<div class="space-y-4">
+<details class="group bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden" open="">
+<summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+<span class="font-semibold text-slate-800 dark:text-slate-200">Como funcionam as trocas no Permutas Baby?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-5 pb-5 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700/50 pt-4">
+                            O Permutas Baby é uma plataforma de economia circular. Você cadastra itens que seu bebê não usa mais (roupas, brinquedos, acessórios) e ganha créditos ou combina trocas diretas com outros pais da sua região ou de todo o Brasil.
+                        </div>
+</details>
+<details class="group bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+<summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+<span class="font-semibold text-slate-800 dark:text-slate-200">É seguro trocar itens usados?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-5 pb-5 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700/50 pt-4">
+                            Sim! Verificamos perfis e incentivamos o uso de nosso sistema de avaliações. Além disso, oferecemos orientações de higienização e segurança para que todos os itens trocados estejam em perfeitas condições de uso.
+                        </div>
+</details>
+<details class="group bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+<summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+<span class="font-semibold text-slate-800 dark:text-slate-200">Como é feito o envio dos produtos?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-5 pb-5 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700/50 pt-4">
+                            O envio pode ser combinado entre as partes através de transportadoras parceiras com desconto, ou os pais podem optar por retirada em mãos se residirem na mesma cidade, garantindo ainda mais economia.
+                        </div>
+</details>
+<details class="group bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+<summary class="flex items-center justify-between p-5 cursor-pointer list-none">
+<span class="font-semibold text-slate-800 dark:text-slate-200">Quais itens posso anunciar?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-primary">expand_more</span>
+</summary>
+<div class="px-5 pb-5 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700/50 pt-4">
+                            Você pode anunciar roupas, sapatos, brinquedos, carrinhos, berços, cadeirinhas e acessórios de alimentação. Itens de higiene pessoal abertos ou medicamentos não são permitidos por questões de segurança.
+                        </div>
+</details>
+</div>
+</section>
+<!-- Terms of Use Section -->
+<section class="bg-white dark:bg-slate-800/30 py-16 border-y border-slate-200 dark:border-slate-800">
+<div class="max-w-4xl mx-auto px-4">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">gavel</span>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Termos de Uso</h2>
+</div>
+<div class="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 space-y-6">
+<div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700">
+<h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-3">1. Aceitação dos Termos</h3>
+<p>Ao utilizar o Permutas Baby, você concorda integralmente com nossas diretrizes de comunidade e políticas de troca. Nossa plataforma visa facilitar o reuso consciente entre pais e cuidadores.</p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700">
+<h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-3">2. Responsabilidade sobre os Itens</h3>
+<p>O anunciante é o único responsável pela veracidade das informações e pelo estado de conservação do produto enviado. Itens com defeitos não informados podem resultar na suspensão da conta.</p>
+</div>
+<div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700">
+<h3 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-3">3. Privacidade e Dados</h3>
+<p>Seus dados são protegidos de acordo com a LGPD. Compartilhamos apenas as informações necessárias (como endereço de entrega) com a contraparte da troca após a confirmação mútua do interesse.</p>
+</div>
+<div class="text-center pt-8">
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-primary/20">
+                                Baixar PDF Completo
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Support Section -->
+<section class="max-w-4xl mx-auto px-4 py-20 text-center">
+<div class="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-2xl p-10">
+<h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Ainda precisa de ajuda?</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-8">Nossa equipe de suporte está pronta para te atender de segunda a sexta, das 09h às 18h.</p>
+<div class="flex flex-wrap justify-center gap-4">
+<a class="flex items-center gap-2 bg-white dark:bg-slate-800 px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="font-medium">suporte@permutasbaby.com.br</span>
+</a>
+<a class="flex items-center gap-2 bg-white dark:bg-slate-800 px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary transition-all group" href="#">
+<span class="material-symbols-outlined text-green-500">chat</span>
+<span class="font-medium">Falar pelo WhatsApp</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-primary mb-6">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold">Permutas Baby</h2>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Conectando pais para uma economia mais colaborativa e sustentável. O futuro do seu bebê começa com o cuidado de hoje.
+                        </p>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Navegação</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Encontrar Trocas</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Como Funciona</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Anunciar Item</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Blog dos Pais</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Suporte</h4>
+<ul class="space-y-4 text-sm">
+<li><a class="text-primary font-semibold" href="#">Central de Ajuda</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Termos de Uso</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Privacidade</a></li>
+<li><a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors" href="#">Contato</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-slate-900 dark:text-white font-bold mb-6">Redes Sociais</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">photo_camera</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-slate-500 dark:text-slate-400 text-xs">
+<p>© 2024 Permutas Baby. Todos os direitos reservados. Feito com amor por pais para pais.</p>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

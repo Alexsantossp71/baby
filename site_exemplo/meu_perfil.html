@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">child_care</span>
+<h1 class="text-xl font-bold tracking-tight">Permutas Baby</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6"><a class="text-sm font-medium hover:text-primary transition-colors" href="#">Trocas</a></nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary w-64" placeholder="Buscar itens..." type="text"/>
+</div>
+<button class="flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-xl font-semibold hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined">person</span>
+<span class="hidden sm:inline">Meu Perfil</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<!-- Profile Header Section -->
+<section class="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-sm border border-primary/5 mb-10">
+<div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+<div class="relative group">
+<div class="size-32 rounded-full overflow-hidden border-4 border-primary/20 bg-primary/5">
+<img alt="Foto de perfil de Mariana Silva" class="w-full h-full object-cover" data-alt="Portrait of a smiling young mother" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgLPI91HlG5UMstNTBGhWFQqjZOUyfaP3a7cGMQLnae0ikBpR1k3wZ_yU02Y3gYrveDO84o9bS6bye2rbqeg_7GUCeenHfCQgi6Nwd4KEJPnBAahAlv7M1k2fsj3ljgUkapf4eXELUFr8o1E3cZiT35bdnGCiwWKU71mmU-h9nGK-Og_Wvdw52J4VX4nmch0bK9HwtRo3-fGtntFajFNS0yOK7K6p7L1gBuYzjbhoB9Lij4vtdl8ZIQ2XgBu0xfUdpMYmYE0ObeQE"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary text-white p-2 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+<div class="flex-1 text-center md:text-left">
+<div class="flex flex-col md:flex-row md:items-center gap-4 mb-4">
+<h2 class="text-3xl font-bold">Mariana Silva</h2>
+<button class="bg-primary/10 text-primary text-sm px-4 py-1.5 rounded-full font-semibold border border-primary/20 hover:bg-primary/20 transition-colors">
+                            Editar Perfil
+                        </button>
+</div>
+<div class="flex flex-wrap justify-center md:justify-start gap-4 text-slate-500 dark:text-slate-400 text-sm mb-6">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">calendar_today</span>
+                            Membro desde Jan 2023
+                        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base" data-location="São Paulo, SP">location_on</span>
+                            São Paulo, SP
+                        </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-yellow-500 font-fill-1">star</span>
+                            4.9 (24 avaliações)
+                        </span>
+</div>
+<!-- Stats Cards -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-2xl border border-primary/10">
+<p class="text-2xl font-bold text-primary">42</p>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Trocas Realizadas</p>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-2xl border border-primary/10">
+<p class="text-2xl font-bold text-primary">15</p>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Itens Ativos</p>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-2xl border border-primary/10">
+<p class="text-2xl font-bold text-primary">98%</p>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Sucesso</p>
+</div>
+<div class="bg-primary/5 dark:bg-primary/10 p-4 rounded-2xl border border-primary/10">
+<p class="text-2xl font-bold text-primary">12</p>
+<p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Seguidores</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: My Announced Items -->
+<section>
+<div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+<h3 class="text-2xl font-bold flex items-center gap-2">
+                    Meus Itens Anunciados
+                    <span class="bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-xs px-2 py-1 rounded-full">15</span>
+</h3>
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary text-white px-6 py-3 rounded-2xl font-bold hover:brightness-110 shadow-lg shadow-primary/20 transition-all">
+<span class="material-symbols-outlined">add_circle</span>
+                    Anunciar Novo Produto
+                </button>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-primary/5 shadow-sm group">
+<div class="aspect-square relative overflow-hidden">
+<img alt="Cadeirinha de bebê para carro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Modern baby car seat in grey" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-BVTEwB_YNpa-YmPafMUEsDMlqzrcYI3nf9sX8BkcAjCXx2y6V06m0pRpRRfpNMrYgSE_Ggejnm_8KNuHN9T2Ql2jQYzhDxWBXD_OTS5HcyIVGBPGh8QogyqCibusKm8xY1wzoKHsv8LBQZ15OPkh04fY2qX-p-fMnZL56a95UuZ-foSYxQ7IOWqltEJZNY3ch4ye-7XJ6CdjqXUV5y5tm3D133KB8na_a4GvMODpXeOIK-IiDodKgUc8gQIh4YOqLGYu-kYbj6k"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            Novo
+                        </div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-lg mb-1 truncate">Cadeirinha Carro 360º</h4>
+<p class="text-slate-500 text-sm mb-4">Categoria: Segurança</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-1 bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">edit</span>
+                                Editar
+                            </button>
+<button class="flex items-center justify-center gap-1 bg-red-50 text-red-500 hover:bg-red-100 py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">delete</span>
+                                Excluir
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-primary/5 shadow-sm group">
+<div class="aspect-square relative overflow-hidden">
+<img alt="Carrinho de bebê compacto" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Compact foldable baby stroller" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRFbaUgsshWQHGWC9PTqrCYDQMpgxX62KN9eRYNU_mg-TzFh6wrB_aTOInxXbfHv14Qwd-AbbSx11Vo885XcRtD1FYB4jtX3bWXLjNPfoj4MmVwcPD9Ur4YXTIHk77qfeKb3fTQqOj6c4pACM7vlg7RNMDrnCvBVuTYGUAIKZmJXsNPELA0Z3OOUouPgp_EIAVbf5OmrnKx3xOvhLeES6MmLBm-cE52j_AqG5SUwPxtAL2rPD-pCSasRKBDLTW6zmfI_dofHZNDs8"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            Usado
+                        </div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-lg mb-1 truncate">Carrinho de Passeio ABC</h4>
+<p class="text-slate-500 text-sm mb-4">Categoria: Passeio</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-1 bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">edit</span>
+                                Editar
+                            </button>
+<button class="flex items-center justify-center gap-1 bg-red-50 text-red-500 hover:bg-red-100 py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">delete</span>
+                                Excluir
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-primary/5 shadow-sm group">
+<div class="aspect-square relative overflow-hidden">
+<img alt="Kit de brinquedos educativos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Wooden educational toys for toddlers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK8WRzb9jNAAQxk9l7xhaVDEFcG_stbZalk6UNuqEwRiuS4EqBqoWmb3iEXqt4RfU8RmW97b7n37Jb7vJokfRAG7EhqWLOAcWdJDwErcaWWfkscJe1ejB3nv5_bY9w7m001oWVrRspnD96UgUOaq9vlfoqaHOMZ43sVw7t9zoaV7IpZ5wWXTGEdjqiOd4o8pZnaqInxj6YdsFI1qo2CkX7nU5Qvd-amiOStbnpvt4YOkDLa2kSuRLi6LFZN1z1efufB_vkGtOps4Q"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            Novo
+                        </div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-lg mb-1 truncate">Kit Brinquedos Madeira</h4>
+<p class="text-slate-500 text-sm mb-4">Categoria: Brinquedos</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-1 bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">edit</span>
+                                Editar
+                            </button>
+<button class="flex items-center justify-center gap-1 bg-red-50 text-red-500 hover:bg-red-100 py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">delete</span>
+                                Excluir
+                            </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-primary/5 shadow-sm group">
+<div class="aspect-square relative overflow-hidden">
+<img alt="Berço portátil cinza" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Grey portable travel crib" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5jLiq0yvjWNqLXwL2_eyBWsZfwWyM2qWTDcOtTZQPFAVtHmtqQn1c-_rZRvxqn-ls-HdRX3b0ChoFQ6NSMdnN2L_-Lsh6af0e1pUIvtjcI6grYe167bWR4_s37HfqiIu2yDERTZWIGKKOyWHAhBx7L0fDt7Mljlqqms067eJ8k6kQpJmrjWdufQDgeEdLyojfdeu3mI6Um21hRXYuQkOGzDGyFJZEW_1mCdR1gFST-xoI30M37aTzUJYWV4KpafVRAgZuOFnCbSE"/>
+<div class="absolute top-3 right-3 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary">
+                            Usado
+                        </div>
+</div>
+<div class="p-5">
+<h4 class="font-bold text-lg mb-1 truncate">Berço Portátil Viagem</h4>
+<p class="text-slate-500 text-sm mb-4">Categoria: Quarto</p>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-1 bg-slate-100 dark:bg-slate-800 hover:bg-primary/10 hover:text-primary py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">edit</span>
+                                Editar
+                            </button>
+<button class="flex items-center justify-center gap-1 bg-red-50 text-red-500 hover:bg-red-100 py-2 rounded-xl transition-colors font-semibold text-sm">
+<span class="material-symbols-outlined text-base">delete</span>
+                                Excluir
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="text-primary font-bold hover:underline flex items-center gap-2">
+                    Ver todos os 15 itens
+                    <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-primary/10 py-12 mt-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-primary mb-6">
+<span class="material-symbols-outlined text-2xl">child_care</span>
+<h1 class="text-lg font-bold">Permutas Baby</h1>
+</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm">
+                        A maior comunidade de troca de itens infantis do Brasil. Economize e ajude o planeta.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold mb-6">Explorar</h5>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Como funciona</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Categorias</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Suporte</h5>
+<ul class="space-y-4 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Central de Ajuda</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Termos de Uso</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacidade</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6">Newsletter</h5>
+<div class="flex gap-2">
+<input class="bg-slate-100 dark:bg-slate-800 border-none rounded-xl text-sm px-4 py-2 flex-1" placeholder="Seu e-mail" type="email"/>
+<button class="bg-primary text-white p-2 rounded-xl">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-400 text-xs">
+<p>© 2024 Permutas Baby. Todos os direitos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors" href="#">Facebook</a>
+<a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

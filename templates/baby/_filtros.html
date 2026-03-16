@@ -1,0 +1,80 @@
+<div class="sticky top-24">
+    <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">tune</span> Filtros
+    </h3>
+    <form method="get" id="filters-form">
+        {% if request.GET.q %}
+            <input type="hidden" name="q" value="{{ request.GET.q }}">
+        {% endif %}
+        <div class="space-y-6">
+            <!-- Categoria -->
+            <div>
+                <p class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wide">Categoria</p>
+                <div class="space-y-2">
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="radio" name="categoria" value="" {% if not request.GET.categoria %}checked{% endif %} class="hidden" onchange="this.form.submit()">
+                        <div class="size-5 rounded bg-slate-100 flex items-center justify-center border-2 border-transparent group-hover:border-primary/30 transition-all {% if not request.GET.categoria %}border-primary bg-white shadow-sm{% endif %}">
+                            <span class="material-symbols-outlined text-[16px] text-primary {% if not request.GET.categoria %}block{% else %}hidden{% endif %}">check</span>
+                        </div>
+                        <span class="text-sm font-medium {% if not request.GET.categoria %}text-primary font-bold{% endif %}">Todas as Categorias</span>
+                    </label>
+                    {% for cat in categorias %}
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="radio" name="categoria" value="{{ cat.id }}" {% if request.GET.categoria == cat.id|stringformat:"s" %}checked{% endif %} class="hidden" onchange="this.form.submit()">
+                            <div class="size-5 rounded bg-slate-100 flex items-center justify-center border-2 border-transparent group-hover:border-primary/30 transition-all {% if request.GET.categoria == cat.id|stringformat:"s" %}border-primary bg-white shadow-sm{% endif %}">
+                                <span class="material-symbols-outlined text-[16px] text-primary {% if request.GET.categoria == cat.id|stringformat:"s" %}block{% else %}hidden{% endif %}">check</span>
+                            </div>
+                            <span class="text-sm font-medium {% if request.GET.categoria == cat.id|stringformat:"s" %}text-primary font-bold{% endif %}">{{ cat.nome }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Tamanho da Fralda -->
+            <div>
+                <p class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wide">Tamanho da Fralda</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for value, label in produto_form.fields.tamanho_fralda.choices %}
+                        <label>
+                            <input type="radio" name="tamanho_fralda" value="{{ value }}" {% if request.GET.tamanho_fralda == value %}checked{% endif %} class="hidden" onchange="this.form.submit()">
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition-all {% if request.GET.tamanho_fralda == value %}bg-primary text-white shadow-md{% else %}bg-slate-100 text-slate-700 hover:bg-primary hover:text-white{% endif %}">{{ label }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Tamanho da Roupa -->
+            <div>
+                <p class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wide">Tamanho da Roupa</p>
+                <div class="flex flex-wrap gap-2">
+                    {% for value, label in produto_form.fields.tamanho_roupa.choices %}
+                        <label>
+                            <input type="radio" name="tamanho_roupa" value="{{ value }}" {% if request.GET.tamanho_roupa == value %}checked{% endif %} class="hidden" onchange="this.form.submit()">
+                            <span class="px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer transition-all {% if request.GET.tamanho_roupa == value %}bg-primary text-white shadow-md{% else %}bg-slate-100 text-slate-700 hover:bg-primary hover:text-white{% endif %}">{{ label }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Condição -->
+            <div>
+                <p class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wide">Condição</p>
+                <div class="space-y-2">
+                    {% for value, label in produto_form.fields.condicao.choices %}
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input type="radio" name="condicao" value="{{ value }}" {% if request.GET.condicao == value %}checked{% endif %} class="hidden" onchange="this.form.submit()">
+                            <div class="size-5 rounded bg-slate-100 flex items-center justify-center border-2 border-transparent group-hover:border-primary/30 transition-all {% if request.GET.condicao == value %}border-primary bg-white shadow-sm{% endif %}">
+                                <span class="material-symbols-outlined text-[16px] text-primary {% if request.GET.condicao == value %}block{% else %}hidden{% endif %}">check</span>
+                            </div>
+                            <span class="text-sm font-medium {% if request.GET.condicao == value %}text-primary font-bold{% endif %}">{{ label }}</span>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <a href="{{ request.path }}" class="w-full px-4 py-2 bg-slate-100 text-slate-600 rounded-xl font-bold text-sm hover:bg-slate-200 transition-colors flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-sm">close</span> Limpar Filtros
+            </a>
+        </div>
+    </form>
+</div>

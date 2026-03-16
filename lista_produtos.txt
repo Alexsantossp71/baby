@@ -1,0 +1,49 @@
+ID:12e6c8b5-fc47-467f-b0fe-0470fcc7ab64|T:bonecos|IMG_P:produtos/hydra_Lso8P0X.jpg|DESC:Lindos bonecos felizes em perfeito estado
+ID:d9ed7231-c429-4dbd-ad48-a7081a7679e8|T:bonecos|IMG_P:produtos/hydra.jpg|DESC:bonecos
+ID:0ba82d49-c3fe-4be0-9b44-96502ffceb15|T:mais um teste|IMG_P:produtos/RobloxScreenShot20250718_211501234_UpxnnvV.png|DESC:Troque o que sobrou pelo que seu bebê precisa
+A plataforma amiga para pais trocarem fraldas, roupas e acessórios de forma segura, sustentável e econômica.
+ID:b089fd05-5fbe-45bd-a2ed-c814e7525ba9|T:mais um teste|IMG_P:produtos/RobloxScreenShot20250718_211501234_9uoWlvS.png|DESC:Troque o que sobrou pelo que seu bebê precisa
+A plataforma amiga para pais trocarem fraldas, roupas e acessórios de forma segura, sustentável e econômica.
+ID:1846790d-c359-42b7-9990-01d94991ba56|T:mais um teste|IMG_P:produtos/RobloxScreenShot20250718_211501234.png|DESC:Troque o que sobrou pelo que seu bebê precisa
+A plataforma amiga para pais trocarem fraldas, roupas e acessórios de forma segura, sustentável e econômica.
+ID:0b4dc209-25e6-4b6b-979f-b37f7bb8730e|T:Sol|IMG_P:produtos/Captura_de_tela_2025-05-14_162032.png|DESC:otimo
+ID:de6b1558-99b4-4da3-84f5-7776aac473a4|T:Ventilador Coluna Baby|IMG_P:produtos/exemplo.png|DESC:Ventilador Coluna Baby em excelente estado. Perfeito para troca!
+ID:bc0298c1-a40c-49fd-835f-1790ebd28611|T:Parede Divisória|IMG_P:produtos/exemplo.png|DESC:Parede Divisória em excelente estado. Perfeito para troca!
+ID:ddba21cd-88fe-4881-ad27-3706945f2e51|T:Tapete Emborrachado|IMG_P:produtos/exemplo.png|DESC:Tapete Emborrachado em excelente estado. Perfeito para troca!
+ID:16703d7b-16b4-40a9-9746-af82957a018f|T:Pufê Estofado|IMG_P:produtos/exemplo.png|DESC:Pufê Estofado em excelente estado. Perfeito para troca!
+ID:d751c408-9dfa-46bb-bca1-904a0dcc0f03|T:Estante Brinquedos|IMG_P:produtos/exemplo.png|DESC:Estante Brinquedos em excelente estado. Perfeito para troca!
+ID:3d529b1f-80dd-4c64-9424-e99889b2989f|T:Cômoda Mini|IMG_P:produtos/exemplo.png|DESC:Cômoda Mini em excelente estado. Perfeito para troca!
+ID:c2171f63-038d-4dc5-b5ad-d9af9d77a010|T:Guarda Roupa Mini|IMG_P:produtos/exemplo.png|DESC:Guarda Roupa Mini em excelente estado. Perfeito para troca!
+ID:b26bc3c7-1d70-4219-889e-2a945450db44|T:Box Organizador|IMG_P:produtos/exemplo.png|DESC:Box Organizador em excelente estado. Perfeito para troca!
+ID:594b8fbc-f76f-4682-accc-952ad4f9df75|T:Banqueta Alimentação|IMG_P:produtos/exemplo.png|DESC:Banqueta Alimentação em excelente estado. Perfeito para troca!
+ID:07e82f53-8e09-4070-abaf-4734d737b733|T:Poltrona Amamentação|IMG_P:produtos/exemplo.png|DESC:Poltrona Amamentação em excelente estado. Perfeito para troca!
+ID:d9a423f3-6c53-46e7-939a-e3fa6c6f336f|T:Garrafa Água Infantil|IMG_P:produtos/exemplo.png|DESC:Garrafa Água Infantil em excelente estado. Perfeito para troca!
+ID:d1bee89c-15bb-43ce-b2af-3e63fd6074f1|T:Lancheira Kids|IMG_P:produtos/exemplo.png|DESC:Lancheira Kids em excelente estado. Perfeito para troca!
+ID:40a78c22-1957-4279-a918-fff59baf4427|T:Mochila Creche|IMG_P:produtos/exemplo.png|DESC:Mochila Creche em excelente estado. Perfeito para troca!
+ID:9c4b0418-0395-47ba-a355-c7f4e8b6e23a|T:Bolsa Maternidade|IMG_P:produtos/exemplo.png|DESC:Bolsa Maternidade em excelente estado. Perfeito para troca!
+ID:5c7c4882-1ebc-4e02-b2f2-bcb67a9c342e|T:Laço Big Hair|IMG_P:produtos/exemplo.png|DESC:Laço Big Hair em excelente estado. Perfeito para troca!
+ID:ae23c782-7456-4144-b735-0b40386992ad|T:Tiara Floral|IMG_P:produtos/exemplo.png|DESC:Tiara Floral em excelente estado. Perfeito para troca!
+ID:181cd3a5-91bc-4244-81c4-95c9e4e633cd|T:Presilha Cabelo|IMG_P:produtos/exemplo.png|DESC:Presilha Cabelo em excelente estado. Perfeito para troca!
+ID:0adcd1e4-946e-4a6b-b9bb-06045ee2b325|T:Luva Proteção UV|IMG_P:produtos/exemplo.png|DESC:Luva Proteção UV em excelente estado. Perfeito para troca!
+ID:734e408b-6fcc-48bc-9c86-8c156d5e29cb|T:Óculos Sol Baby|IMG_P:produtos/exemplo.png|DESC:Óculos Sol Baby em excelente estado. Perfeito para troca!
+ID:69269cae-1cf5-4185-b085-13abb90ed0fa|T:Chapeu Palha Summer|IMG_P:produtos/exemplo.png|DESC:Chapeu Palha Summer em excelente estado. Perfeito para troca!
+ID:24c590e8-6238-47ba-979d-01d4672ed8b6|T:Bola Pitoco|IMG_P:produtos/exemplo.png|DESC:Bola Pitoco em excelente estado. Perfeito para troca!
+ID:034d4835-d5a2-43a3-be34-de4315d389cb|T:Tapete Musical|IMG_P:produtos/exemplo.png|DESC:Tapete Musical em excelente estado. Perfeito para troca!
+ID:e5518b8d-5dc9-45fe-8569-d52c0e4666c9|T:Parque Jump|IMG_P:produtos/exemplo.png|DESC:Parque Jump em excelente estado. Perfeito para troca!
+ID:907284fd-2259-4121-82c2-76d9c419794b|T:Piano Brinquedo|IMG_P:produtos/exemplo.png|DESC:Piano Brinquedo em excelente estado. Perfeito para troca!
+ID:5c477ea1-dbb3-43ed-9f30-1bc523bf0667|T:Quepe Educativo|IMG_P:produtos/exemplo.png|DESC:Quepe Educativo em excelente estado. Perfeito para troca!
+ID:dfa3a2a5-a40f-4c61-88f6-f11906ca157b|T:Triciclo Infantile|IMG_P:produtos/exemplo.png|DESC:Triciclo Infantile em excelente estado. Perfeito para troca!
+ID:2b0abdf2-4024-4f52-a930-a1d95b0a225f|T:Bloco de Construção|IMG_P:produtos/exemplo.png|DESC:Bloco de Construção em excelente estado. Perfeito para troca!
+ID:bb69b36c-f9ae-489b-bc9e-b60ff7deafd6|T:Boneca Bebê|IMG_P:produtos/exemplo.png|DESC:Boneca Bebê em excelente estado. Perfeito para troca!
+ID:da9ee627-c03c-4ff3-b4ab-904fd4bbd9b1|T:Carrinho Hot Wheels|IMG_P:produtos/exemplo.png|DESC:Carrinho Hot Wheels em excelente estado. Perfeito para troca!
+ID:06a4b651-ba23-45ac-88a3-440d92d5ca78|T:Pelúcia Urso Grande|IMG_P:produtos/exemplo.png|DESC:Pelúcia Urso Grande em excelente estado. Perfeito para troca!
+ID:35eb1c45-c4bb-4559-8d86-eca019a6f51c|T:Vestido Junina 5t|IMG_P:produtos/exemplo.png|DESC:Vestido Junina 5t em excelente estado. Perfeito para troca!
+ID:1eb94e21-4bf9-4fad-8bff-f118d0dfaa8b|T:Pijama Animais 4t|IMG_P:produtos/exemplo.png|DESC:Pijama Animais 4t em excelente estado. Perfeito para troca!
+ID:70af5897-2cf7-4526-bc35-9c9327c16c70|T:Body Manga Longa 0-3m|IMG_P:produtos/exemplo.png|DESC:Body Manga Longa 0-3m em excelente estado. Perfeito para troca!
+ID:910a27de-13dc-4b74-9952-fcb68c4aeb2a|T:Calça Jeans 3t|IMG_P:produtos/exemplo.png|DESC:Calça Jeans 3t em excelente estado. Perfeito para troca!
+ID:0a878a27-f090-493f-bd5f-234ced6b2fa7|T:Saia Tutu 18-24m|IMG_P:produtos/exemplo.png|DESC:Saia Tutu 18-24m em excelente estado. Perfeito para troca!
+ID:7877a5eb-7c2a-454c-b795-d7f3ede59dbc|T:Camiseta Estampada 2t|IMG_P:produtos/exemplo.png|DESC:Camiseta Estampada 2t em excelente estado. Perfeito para troca!
+ID:dffcc399-5c80-4fd5-b4b1-ebbe86585a50|T:Jaqueta de Moletom 18-24m|IMG_P:produtos/exemplo.png|DESC:Jaqueta de Moletom 18-24m em excelente estado. Perfeito para troca!
+ID:db6d95dd-c310-4944-9c29-84ef98237af2|T:Conjunto Body + Calça 3-6m|IMG_P:produtos/exemplo.png|DESC:Conjunto Body + Calça 3-6m em excelente estado. Perfeito para troca!
+ID:abd92a8d-4360-4e1e-9044-f8b1283673f8|T:Vestido Floral 12-18m|IMG_P:produtos/exemplo.png|DESC:Vestido Floral 12-18m em excelente estado. Perfeito para troca!
+ID:b2fe21f2-7c7d-4408-8f1e-6377a068c1df|T:Macacão Bebê Menino 6-9m|IMG_P:produtos/exemplo.png|DESC:Macacão Bebê Menino 6-9m em excelente estado. Perfeito para troca!

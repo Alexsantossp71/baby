@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block title %}Criar Conta - Permutas{% endblock %}
+
+{% block content %}
+<div style="min-height: calc(100vh - 200px); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+    <div style="max-width: 420px; width: 100%;">
+        
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
+                </svg>
+            </div>
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem;">Crie sua conta</h2>
+            <p style="color: var(--gray-500); font-size: 0.95rem;">
+                Ou <a href="{% url 'users:login' %}" style="color: var(--primary); font-weight: 500;">faça login</a> se já tem conta
+            </p>
+        </div>
+        
+        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100);">
+            <form method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                    <div style="background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; padding: 1rem; border-radius: 10px; font-size: 0.9rem;">
+                        Erro ao criar conta. Verifique os dados abaixo.
+                    </div>
+                {% endif %}
+                
+                <div>
+                    <label for="id_username" style="display: block; font-weight: 500; color: var(--gray-700); margin-bottom: 0.5rem; font-size: 0.9rem;">Nome de usuário</label>
+                    <input 
+                        id="id_username" 
+                        name="username" 
+                        type="text" 
+                        required 
+                        value="{{ form.username.value|default:'' }}"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 3px var(--primary-light)';"
+                        onblur="this.style.borderColor='var(--gray-300)'; this.style.boxShadow='none';"
+                    >
+                    {% if form.username.errors %}
+                        <div style="color: var(--danger); font-size: 0.85rem; margin-top: 0.5rem;">{{ form.username.errors|striptags }}</div>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="id_password1" style="display: block; font-weight: 500; color: var(--gray-700); margin-bottom: 0.5rem; font-size: 0.9rem;">Senha</label>
+                    <input 
+                        id="id_password1" 
+                        name="password1" 
+                        type="password" 
+                        required 
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 3px var(--primary-light)';"
+                        onblur="this.style.borderColor='var(--gray-300)'; this.style.boxShadow='none';"
+                    >
+                    {% if form.password1.errors %}
+                        <div style="color: var(--danger); font-size: 0.85rem; margin-top: 0.5rem;">{{ form.password1.errors|striptags }}</div>
+                    {% endif %}
+                </div>
+                
+                <div>
+                    <label for="id_password2" style="display: block; font-weight: 500; color: var(--gray-700); margin-bottom: 0.5rem; font-size: 0.9rem;">Confirmar senha</label>
+                    <input 
+                        id="id_password2" 
+                        name="password2" 
+                        type="password" 
+                        required 
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s;"
+                        onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 3px var(--primary-light)';"
+                        onblur="this.style.borderColor='var(--gray-300)'; this.style.boxShadow='none';"
+                    >
+                    {% if form.password2.errors %}
+                        <div style="color: var(--danger); font-size: 0.85rem; margin-top: 0.5rem;">{{ form.password2.errors|striptags }}</div>
+                    {% endif %}
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem; margin-top: 0.5rem;">
+                    Criar Conta
+                </button>
+            </form>
+            
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-100); text-align: center;">
+                <p style="font-size: 0.85rem; color: var(--gray-500);">
+                    Ao criar uma conta, você concorda com nossos
+                </p>
+                <div style="margin-top: 0.75rem; display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+                    <a href="#" style="color: var(--primary); font-size: 0.85rem; font-weight: 500;">Termos de Serviço</a>
+                    <span style="color: var(--gray-300);">|</span>
+                    <a href="#" style="color: var(--primary); font-size: 0.85rem; font-weight: 500;">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

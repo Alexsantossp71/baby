@@ -1,0 +1,23 @@
+# Usuários de Teste - Permutas Site
+
+## Credenciais
+
+| # | Username | Email | Senha |
+|---|----------|-------|-------|
+| 1 | joao_silva | joao@teste.com | senha123 |
+| 2 | maria_santos | maria@teste.com | senha123 |
+| 3 | pedro_oliveira | pedro@teste.com | senha123 |
+| 4 | ana_ferreira | ana@teste.com | senha123 |
+| 5 | carlos_souza | carlos@teste.com | senha123 |
+
+## Como usar
+
+1. Acesse http://127.0.0.1:8000/accounts/login/
+2. Use o username e senha acima para fazer login
+3. Cada usuário possui 5 produtos cadastrados
+
+## Observações
+
+- Todos os usuários têm a mesma senha: `senha123`
+- Os produtos estão disponíveis para troca
+- Você pode testar o fluxo completo de propostas de troca

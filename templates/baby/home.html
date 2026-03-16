@@ -1,0 +1,130 @@
+{% extends 'baby/base_baby.html' %}
+
+{% block title %}Início - Permutas Baby{% endblock %}
+
+{% block content %}
+<!-- Hero Banner -->
+<section class="mb-10 rounded-2xl overflow-hidden bg-brand-mint dark:bg-primary/10 border border-brand-mint dark:border-primary/20">
+    <div class="flex flex-col md:flex-row items-center gap-8 p-8 md:p-12">
+        <div class="flex-1 space-y-6">
+            <span class="inline-block px-4 py-1 rounded-full bg-white dark:bg-slate-800 text-xs font-bold text-primary tracking-wider uppercase">Comunidade de Pais</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-slate-100 leading-[1.1]">
+                Troque o que sobrou pelo que seu <span class="text-primary">bebê precisa</span>
+            </h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 max-w-lg">
+                A plataforma amiga para pais trocarem fraldas, roupas e acessórios de forma segura, sustentável e econômica.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="{% url 'baby:lista_produtos' %}" class="px-8 py-4 bg-primary text-white rounded-xl font-bold text-lg shadow-lg shadow-primary/30 hover:scale-105 transition-transform">
+                    Começar Troca
+                </a>
+                <a href="{% url 'sobre' %}#como-funciona" class="px-8 py-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl font-bold text-lg hover:bg-slate-50 transition-colors">
+                    Como funciona?
+                </a>
+            </div>
+        </div>
+        <div class="flex-1 w-full max-w-md">
+            <div class="aspect-square bg-white/50 dark:bg-slate-800/50 rounded-2xl p-4 rotate-3 shadow-xl">
+                <img class="w-full h-full object-cover rounded-xl -rotate-3 hover:rotate-0 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdd8RL0yYX4uBrZcD_qg3Inp3JRIAH3CrWO8PNfmqkHOtege3LJoPFL9xNGvdd79DU0FZ5DXNGO8P2AlHXvHe7_izNnBuexlCPZpM9ckqckLA7Oc_-DjFbWPOOZxfGEk_zaycc-PaR3kTI-mCOA8eq9AQGnsS46G7oyZUr5gnMDjIVaTLPZgQxoR4XPvXcHmpC_Fwt3BdWLrDkVFhx6Uo7Zg0BVzE8oHOIjY0wrc7gDVuFooCkbft5fLuQuA58WiK2xybkxKYVLvY" alt="Baby"/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories -->
+{% if categorias %}
+<section class="mb-10">
+    <h2 class="text-2xl font-bold tracking-tight mb-6">Categorias</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {% for categoria in categorias_topo %}
+            <a href="?categoria={{ categoria.id }}" class="flex flex-col items-center p-4 bg-white rounded-xl border border-slate-100 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all {% if request.GET.categoria == categoria.id|stringformat:"s" %}border-primary bg-primary/5 shadow-md shadow-primary/5{% endif %}">
+                <span class="material-symbols-outlined text-3xl text-primary mb-2">{{ categoria.icone|default:'category' }}</span>
+                <span class="font-semibold text-sm text-center">{{ categoria.nome }}</span>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Products -->
+<div class="flex flex-col lg:flex-row gap-10">
+    <!-- Sidebar Filters -->
+    <aside class="w-full lg:w-64 flex-shrink-0">
+        {% include 'baby/_filtros.html' %}
+    </aside>
+    
+    <!-- Product Grid -->
+    <div class="flex-1">
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold tracking-tight">Produtos em Destaque</h2>
+            <div class="flex items-center gap-2 text-sm text-slate-500">
+                Ordenar por: 
+                <select name="ordenacao" onchange="document.getElementById('filters-form').submit()" class="font-bold text-slate-900 dark:text-slate-100 bg-transparent border-none cursor-pointer">
+                    <option value="-criado_em" {% if request.GET.ordenacao == '-criado_em' or not request.GET.ordenacao %}selected{% endif %}>Mais Recentes</option>
+                    <option value="criado_em" {% if request.GET.ordenacao == 'criado_em' %}selected{% endif %}>Mais Antigos</option>
+                    <option value="titulo" {% if request.GET.ordenacao == 'titulo' %}selected{% endif %}>Ordem Alfabética</option>
+                </select>
+            </div>
+        </div>
+        
+        {% if produtos %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                {% for produto in produtos %}
+                    <a href="{% url 'baby:produto_detalhe' pk=produto.pk slug=produto.slug %}" class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+                        <div class="aspect-[4/3] relative overflow-hidden">
+                            {% if produto.imagem_principal %}
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ produto.imagem_principal.url }}" alt="{{ produto.titulo }}"/>
+                            {% else %}
+                                <div class="w-full h-full bg-slate-100 flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-4xl text-slate-300">image</span>
+                                </div>
+                            {% endif %}
+                            <div class="absolute top-3 right-3">
+                                <button class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+                                    <span class="material-symbols-outlined">favorite</span>
+                                </button>
+                            </div>
+                            <div class="absolute bottom-3 left-3 px-3 py-1 rounded-lg text-xs font-bold uppercase
+                                {% if produto.condicao == 'novo' %}bg-brand-blue text-blue-600
+                                {% elif produto.condicao == 'seminovo' %}bg-brand-pink text-pink-600
+                                {% elif produto.condicao == 'usado_otimo' %}bg-brand-mint text-teal-600
+                                {% else %}bg-slate-100 text-slate-600{% endif %}">
+                                {{ produto.get_condicao_display }}
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-lg mb-1 line-clamp-2 leading-tight group-hover:text-primary transition-colors">{{ produto.titulo }}</h3>
+                            <div class="flex items-center gap-1 text-slate-500 text-sm mb-4">
+                                <span class="material-symbols-outlined text-lg">location_on</span>
+                                <span>{{ produto.cidade }}, {{ produto.estado }}</span>
+                            </div>
+                            <div class="flex items-center justify-between gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+                                <div class="flex -space-x-2">
+                                    {% if produto.usuario.foto %}
+                                        <img class="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 object-cover" src="{{ produto.usuario.foto.url }}" alt=""/>
+                                    {% else %}
+                                        <div class="size-8 rounded-full border-2 border-white dark:border-slate-900 bg-brand-mint flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-primary text-sm">person</span>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                <span class="px-4 py-2 bg-brand-mint text-primary rounded-xl font-bold text-xs hover:bg-primary hover:text-white transition-all">
+                                    Ver Detalhes
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-12">
+                <span class="material-symbols-outlined text-6xl text-slate-300 mb-4">inventory_2</span>
+                <p class="text-slate-500">Nenhum produto disponível ainda.</p>
+                <a href="{% url 'baby:criar_produto' %}" class="inline-block mt-4 px-6 py-3 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors">
+                    Seja o primeiro a cadastrar!
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
