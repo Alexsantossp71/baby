@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'permutas_site.wsgi.application'
 
 
 # Database
-# Use Vercel Postgres if DATABASE_URL is present, otherwise fallback to SQLite
+# Prioritize Postgres from environment (Vercel), fallback to SQLite for local development
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
