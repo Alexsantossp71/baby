@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView, RedirectView
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='/baby/', permanent=False), name='index'),
     path('sobre/', TemplateView.as_view(template_name='sobre.html'), name='sobre'),
     path('ajuda/', TemplateView.as_view(template_name='ajuda_e_faq_desktop.html'), name='ajuda'),
     path('rastreio/', TemplateView.as_view(template_name='rastreio.html'), name='rastreio'),
