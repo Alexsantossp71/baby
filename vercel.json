@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "framework": null,
-  "installCommand": "pip install -r requirements.txt",
-  "buildCommand": "sh build.sh",
   "rewrites": [
     {
       "source": "/static/(.*)",
