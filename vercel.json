@@ -1,20 +1,16 @@
 {
   "version": 2,
-  "builds": [
+  "framework": null,
+  "installCommand": "pip install -r requirements.txt",
+  "buildCommand": "sh build.sh",
+  "rewrites": [
     {
-      "src": "permutas_site/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "source": "/static/(.*)",
+      "destination": "/static/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "permutas_site/wsgi.py"
+      "source": "/(.*)",
+      "destination": "permutas_site/wsgi.py"
     }
   ]
 }
