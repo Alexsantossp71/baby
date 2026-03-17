@@ -5,8 +5,42 @@ from django.core.paginator import Paginator
 from django.db.models import Q, F
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST, require_http_methods
+from django.utils.text import slugify
 from .models import Produto, Categoria, PropostaTroca, ProdutoFavorito
 from .forms import ProdutoForm
+
+def populate_categories(request):
+    """
+    Temporary view to populate the database with standard categories.
+    """
+    categories_data = [
+        {'nome': 'Roupas', 'icone': 'checkroom', 'cor': '#ec5b13'},
+        {'nome': 'Calçados', 'icone': 'child_care', 'cor': '#8b5cf6'},
+        {'nome': 'Brinquedos', 'icone': 'toys', 'cor': '#10b981'},
+        {'nome': 'Carrinhos', 'icone': 'directions_car', 'cor': '#f59e0b'},
+        {'nome': 'Berços', 'icone': 'bed', 'cor': '#3b82f6'},
+        {'nome': 'Alimentação', 'icone': 'restaurant', 'cor': '#ef4444'},
+        {'nome': 'Higiene', 'icone': 'spa', 'cor': '#ec4899'},
+        {'nome': 'Livros', 'icone': 'menu_book', 'cor': '#6366f1'},
+        {'nome': 'Acessórios', 'icone': 'watch', 'cor': '#14b8a6'},
+        {'nome': 'Móveis', 'icone': 'chair', 'cor': '#78716c'},
+    ]
+    
+    count = 0
+    for cat_data in categories_data:
+        cat, created = Categoria.objects.get_or_create(
+            slug=slugify(cat_data['nome']),
+            defaults={
+                'nome': cat_data['nome'],
+                'icone': cat_data['icone'],
+                'cor': cat_data['cor'],
+                'ativa': True
+            }
+        )
+        if created:
+            count += 1
+            
+    return JsonResponse({'message': f'{count} categories created.', 'total': Categoria.objects.count()})
 
 @require_http_methods(["GET"])
 def home(request):
