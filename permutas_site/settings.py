@@ -150,7 +150,7 @@ USE_VERCEL_BLOB = os.environ.get('BLOB_READ_WRITE_TOKEN') is not None
 if USE_VERCEL_BLOB:
     STORAGES = {
         'default': {
-            'BACKEND': 'vercel_blob.storage.VercelBlobStorage',
+            'BACKEND': 'baby.storage.VercelBlobStorage',
         },
         'staticfiles': {
             'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
