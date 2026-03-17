@@ -8,7 +8,6 @@ urlpatterns = [
     path('produtos/', views.lista_produtos, name='lista_produtos'),
     path('produto/<uuid:pk>/<slug:slug>/', views.produto_detalhe, name='produto_detalhe'),
     path('produto/criar/', views.criar_produto, name='criar_produto'),
-    path('populate-categories/', views.populate_categories, name='populate_categories'),
     path('meus-produtos/', views.meus_produtos, name='meus_produtos'),
     path('trocas/', views.minhas_trocas, name='minhas_trocas'),
     path('troca/<uuid:proposta_id>/aceitar/', views.aceitar_proposta, name='aceitar_proposta'),
