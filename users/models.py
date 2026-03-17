@@ -19,7 +19,7 @@ class User(AbstractUser):
         verbose_name='Tipo de Usuário'
     )
     telefone = models.CharField(max_length=20, blank=True, verbose_name='Telefone')
-    foto = models.ImageField(upload_to='perfis/', blank=True, null=True, verbose_name='Foto')
+    foto = models.ImageField(upload_to='perfis/', blank=True, null=True, verbose_name='Foto', max_length=255)
     bio = models.TextField(blank=True, verbose_name='Biografia')
     cidade = models.CharField(max_length=100, blank=True, verbose_name='Cidade')
     estado = models.CharField(max_length=2, blank=True, verbose_name='Estado')

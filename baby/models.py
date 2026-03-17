@@ -33,7 +33,7 @@ class Categoria(models.Model):
 class Marca(models.Model):
     nome = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
-    logo = models.ImageField(upload_to='marcas/', blank=True)
+    logo = models.ImageField(upload_to='marcas/', blank=True, max_length=255)
 
     class Meta:
         verbose_name = 'Marca'
@@ -90,11 +90,11 @@ class Produto(models.Model):
         validar_tamanho_imagem,
     ]
     
-    imagem_principal = models.ImageField(upload_to='produtos/', validators=_image_validators)
-    imagem_2 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators)
-    imagem_3 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators)
-    imagem_4 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators)
-    imagem_5 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators)
+    imagem_principal = models.ImageField(upload_to='produtos/', validators=_image_validators, max_length=255)
+    imagem_2 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators, max_length=255)
+    imagem_3 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators, max_length=255)
+    imagem_4 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators, max_length=255)
+    imagem_5 = models.ImageField(upload_to='produtos/', null=True, blank=True, validators=_image_validators, max_length=255)
     
     cidade = models.CharField(max_length=100)
     estado = models.CharField(max_length=2)
