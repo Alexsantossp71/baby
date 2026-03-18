@@ -64,7 +64,7 @@ def home(request):
         'produto_form': filtro_form,
         'filtros': request.GET.dict(),
     }
-    return render(request, 'baby/index.html', context)
+    return render(request, 'baby/home.html', context)
 
 
 @require_http_methods(["GET"])
