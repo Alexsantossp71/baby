@@ -64,7 +64,72 @@ def home(request):
         'produto_form': filtro_form,
         'filtros': request.GET.dict(),
     }
-    return render(request, 'baby/home.html', context)
+    return render(request, 'baby/index.html', context)
+
+
+def populate_last_users(request):
+    from django.contrib.auth import get_user_model
+    from .models import Produto, Categoria
+    from django.utils.text import slugify
+    import requests
+    from django.core.files.base import ContentFile
+    from django.http import HttpResponse
+
+    User = get_user_model()
+    users_data = [
+        ('UserLake8', 'userlake8@example.com', ' - Top de Linha', 'Florianópolis', 'SC'),
+        ('UserLake9', 'userlake9@example.com', ' - Oportunidade', 'Florianópolis', 'SC'),
+        ('UserLake10', 'userlake10@example.com', ' - Estado de Novo', 'Florianópolis', 'SC'),
+    ]
+    
+    cats = list(Categoria.objects.all())
+    if not cats:
+        # Tenta criar categorias base se não existirem
+        cat_names = ['Roupas', 'Calçados', 'Brinquedos', 'Carrinhos', 'Berços', 'Alimentação', 'Higiene', 'Livros', 'Acessórios', 'Móveis']
+        for name in cat_names:
+            Categoria.objects.get_or_create(nome=name, slug=slugify(name))
+        cats = list(Categoria.objects.all())
+    
+    count = 0
+    for username, email, suffix, city, state in users_data:
+        # Primeiro tenta por email e depois por username pra garantir
+        user = User.objects.filter(email=email).first() or User.objects.filter(username=username).first()
+        if not user:
+            user = User.objects.create(
+                username=username, 
+                email=email,
+                first_name=username,
+                is_active=True
+            )
+            user.set_password('PassLake123!')
+            user.save()
+            
+        for i in range(10):
+            cat = cats[i % len(cats)]
+            title = f"{cat.nome}{suffix} {i+1}"
+            p = Produto.objects.create(
+                usuario=user, # Changed from vendedor to usuario
+                titulo=title,
+                slug=slugify(f"{username}-{cat.nome}-{i+1}-{suffix}"),
+                descricao=f"Item de excelente qualidade da categoria {cat.nome}.",
+                categoria=cat,
+                condicao='seminovo',
+                valor_estimado=100 + (i*10),
+                cidade=city,
+                estado=state,
+            )
+            # Add image from picsum
+            try:
+                img_url = f"https://picsum.photos/seed/{slugify(title)}/800/600"
+                resp = requests.get(img_url, timeout=10)
+                if resp.status_code == 200:
+                    p.imagem_principal.save(f"prod_{p.id}_{i}.jpg", ContentFile(resp.content), save=True)
+            except Exception as e:
+                print(f"Error image: {e}")
+                pass
+            count += 1
+            
+    return HttpResponse(f"Successfully populated {count} products for users 8, 9, 10.")
 
 
 @require_http_methods(["GET"])
