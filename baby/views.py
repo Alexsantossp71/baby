@@ -404,5 +404,6 @@ def excluir_produto(request, pk):
         messages.success(request, f'Anúncio "{titulo}" excluído com sucesso.')
         return redirect('baby:meus_produtos')
     
-    # Se tentarem acessar via GET (pela URL), redireciona para o detalhe do produto
-    return redirect('baby:produto_detalhe', pk=produto.pk, slug=produto.slug)
+    # Se tentarem acessar via GET, apenas volta para a lista de produtos com um aviso
+    messages.warning(request, 'Para excluir um anúncio, utilize o botão de exclusão na página.')
+    return redirect('baby:meus_produtos')
