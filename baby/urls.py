@@ -16,5 +16,5 @@ urlpatterns = [
     path('favoritar/', views.favoritar_produto, name='favoritar_produto'),
     path('favoritos/', views.meus_favoritos, name='meus_favoritos'),
     path('categoria/<str:slug>/', views.categoria_view, name='categoria'),
-    path('produto/<uuid:pk>/excluir/', views.excluir_produto, name='excluir_produto'),
+    path('produto/<uuid:pk>/remover/', views.remover_produto, name='remover_produto'),
 ]

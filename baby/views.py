@@ -391,10 +391,9 @@ def categoria_view(request, slug):
 
 
 @login_required
-def excluir_produto(request, pk):
+def remover_produto(request, pk):
     """
     Exclui um anúncio de produto. 
-    Verifica se o usuário é o proprietário antes de realizar a exclusão.
     """
     produto = get_object_or_404(Produto, pk=pk, usuario=request.user)
     
@@ -404,6 +403,4 @@ def excluir_produto(request, pk):
         messages.success(request, f'Anúncio "{titulo}" excluído com sucesso.')
         return redirect('baby:meus_produtos')
     
-    # Se tentarem acessar via GET, apenas volta para a lista de produtos com um aviso
-    messages.warning(request, 'Para excluir um anúncio, utilize o botão de exclusão na página.')
     return redirect('baby:meus_produtos')
