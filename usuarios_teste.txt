@@ -4,20 +4,17 @@
 
 | # | Username | Email | Senha |
 |---|----------|-------|-------|
-| 1 | joao_silva | joao@teste.com | senha123 |
-| 2 | maria_santos | maria@teste.com | senha123 |
-| 3 | pedro_oliveira | pedro@teste.com | senha123 |
-| 4 | ana_ferreira | ana@teste.com | senha123 |
-| 5 | carlos_souza | carlos@teste.com | senha123 |
+
+| 6-15| UserLake1-10 | userlake[1-10]@example.com | PassLake123! |
 
 ## Como usar
 
-1. Acesse http://127.0.0.1:8000/accounts/login/
-2. Use o username e senha acima para fazer login
-3. Cada usuário possui 5 produtos cadastrados
+1. Acesse https://baby-lake.vercel.app/ (Produção) ou http://localhost:8000/ (Local)
+2. Use o email e a senha `PassLake123!` para os usuários UserLake.
+
 
 ## Observações
 
-- Todos os usuários têm a mesma senha: `senha123`
-- Os produtos estão disponíveis para troca
-- Você pode testar o fluxo completo de propostas de troca
+- **Usuários 8, 9, 10**: População automatizada via backend.
+- **Usuários 1 a 7**: População manual/subagent.
+- Total de **100 produtos** novos na base de dados online.

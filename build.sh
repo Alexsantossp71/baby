@@ -8,6 +8,10 @@ python3 -m pip install -r requirements.txt
 echo "Rodando migrations..."
 python3 manage.py migrate --noinput
 
+# Cria superusuário automaticamente se configurado
+echo "Configurando superusuário..."
+python3 manage.py setup_admin
+
 # Coleta arquivos estáticos
 echo "Coletando arquivos estáticos..."
 python3 manage.py collectstatic --noinput --clear
