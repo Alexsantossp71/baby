@@ -51,18 +51,20 @@ def home(request):
         ordenacao = '-criado_em'
     produtos = produtos.order_by(ordenacao)
     
-    # For the home page, we might want a smaller limit than the full list
-    # Use standardized name 'produtos' for consistent partial usage
-    produtos_list = produtos[:12]
+    # Pagination
+    paginator = Paginator(produtos, 12)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
     favoritos_ids = []
     if request.user.is_authenticated:
         favoritos_ids = list(ProdutoFavorito.objects.filter(usuario=request.user).values_list('produto_id', flat=True))
     
     context = {
-        'categorias_topo': categorias[:6], # Top categories for icons
-        'categorias': categorias, # All for filters - standardized name
-        'produtos': produtos_list, # Standardized name
+        'page_obj': page_obj,
+        'produtos': page_obj.object_list,
+        'categorias_topo': categorias[:6],
+        'categorias': categorias,
         'produto_form': ProdutoForm(),
         'filtros': request.GET.dict(),
         'favoritos_ids': favoritos_ids,
