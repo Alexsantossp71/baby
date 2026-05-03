@@ -38,13 +38,20 @@
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
     <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
         <!-- Top Navigation Bar -->
-        <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-10 py-3">
-            <div class="max-w-[1280px] mx-auto flex items-center justify-between gap-4">
-                <div class="flex items-center gap-8">
-                    <a href="{% url 'baby:home' %}" class="flex items-center gap-2 text-primary">
-                        <span class="material-symbols-outlined text-3xl">child_care</span>
-                        <h2 class="text-xl font-black leading-tight tracking-tight text-slate-900 dark:text-slate-100">Permutas Baby</h2>
+        <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-10 py-3">
+            <div class="max-w-[1280px] mx-auto flex items-center justify-between gap-2 md:gap-4">
+                <div class="flex items-center gap-2 md:gap-8">
+                    <!-- Mobile menu toggle button -->
+                    <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-1 text-slate-600 hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-2xl">menu</span>
+                    </button>
+                    
+                    <a href="{% url 'baby:home' %}" class="flex items-center gap-1 md:gap-2 text-primary shrink-0">
+                        <span class="material-symbols-outlined text-2xl md:text-3xl">child_care</span>
+                        <h2 class="text-lg md:text-xl font-black leading-tight tracking-tight text-slate-900 dark:text-slate-100">Permutas Baby</h2>
                     </a>
+                    
+                    <!-- Desktop Search -->
                     <div class="hidden lg:flex w-72">
                         <form action="{% url 'baby:lista_produtos' %}" method="get" class="relative w-full">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
@@ -54,7 +61,9 @@
                         </form>
                     </div>
                 </div>
-                <div class="flex items-center gap-6 lg:gap-10">
+                
+                <div class="flex items-center gap-2 sm:gap-6 lg:gap-10 shrink-0">
+                    <!-- Desktop Nav -->
                     <nav class="hidden md:flex items-center gap-8">
                         <a class="text-sm font-semibold hover:text-primary transition-colors" href="{% url 'baby:lista_produtos' %}">Trocas</a>
                         {% if user.is_authenticated %}
@@ -62,17 +71,18 @@
                             <a class="text-sm font-semibold hover:text-primary transition-colors" href="{% url 'baby:minhas_trocas' %}">Minhas Trocas</a>
                         {% endif %}
                     </nav>
+                    
                     {% if user.is_authenticated %}
-                        <div class="flex items-center gap-4">
-                            <a href="{% url 'baby:criar_produto' %}" class="px-4 py-2 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary/90 transition-colors">
+                        <div class="flex items-center gap-2 md:gap-4">
+                            <a href="{% url 'baby:criar_produto' %}" class="px-3 py-1.5 md:px-4 md:py-2 bg-primary text-white rounded-xl font-bold text-xs md:text-sm hover:bg-primary/90 transition-colors">
                                 Anunciar
                             </a>
                             <div class="relative group">
-                                <button class="size-10 rounded-full bg-brand-mint border-2 border-white shadow-sm overflow-hidden">
+                                <button class="size-8 md:size-10 rounded-full bg-brand-mint border-2 border-white shadow-sm overflow-hidden flex items-center justify-center">
                                     {% if user.foto %}
                                         <img class="w-full h-full object-cover" src="{{ user.foto.url }}" alt="{{ user.username }}">
                                     {% else %}
-                                        <span class="material-symbols-outlined text-primary">person</span>
+                                        <span class="material-symbols-outlined text-primary text-sm md:text-base">person</span>
                                     {% endif %}
                                 </button>
                                 <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
@@ -87,14 +97,44 @@
                             </div>
                         </div>
                     {% else %}
-                        <div class="flex items-center gap-4">
-                            <a href="{% url 'users:login' %}" class="text-sm font-semibold hover:text-primary transition-colors">Entrar</a>
-                            <a href="{% url 'users:register' %}" class="px-4 py-2 bg-primary text-white rounded-xl font-bold text-sm hover:bg-primary/90 transition-colors">Cadastrar</a>
+                        <div class="flex items-center gap-2 md:gap-4">
+                            <a href="{% url 'users:login' %}" class="text-xs md:text-sm font-semibold hover:text-primary transition-colors">Entrar</a>
+                            <a href="{% url 'users:register' %}" class="px-3 py-1.5 md:px-4 md:py-2 bg-primary text-white rounded-xl font-bold text-xs md:text-sm hover:bg-primary/90 transition-colors">Cadastrar</a>
                         </div>
                     {% endif %}
                 </div>
             </div>
+            
+            <!-- Mobile Menu Expandable Content -->
+            <div id="mobile-menu-content" class="hidden md:hidden mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-4">
+                <form action="{% url 'baby:lista_produtos' %}" method="get" class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-400">
+                        <span class="material-symbols-outlined text-xl">search</span>
+                    </div>
+                    <input name="q" class="block w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 border-none rounded-xl focus:ring-2 focus:ring-primary/50 text-sm" placeholder="Buscar fraldas, carrinhos..." type="text"/>
+                </form>
+                <nav class="flex flex-col gap-3 pb-2">
+                    <a class="text-sm font-semibold hover:text-primary transition-colors py-1" href="{% url 'baby:lista_produtos' %}">Trocas</a>
+                    {% if user.is_authenticated %}
+                        <a class="text-sm font-semibold hover:text-primary transition-colors py-1" href="{% url 'baby:meus_produtos' %}">Meus Anúncios</a>
+                        <a class="text-sm font-semibold hover:text-primary transition-colors py-1" href="{% url 'baby:minhas_trocas' %}">Minhas Trocas</a>
+                    {% endif %}
+                </nav>
+            </div>
         </header>
+
+        <script>
+            // Mobile menu toggle logic
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.getElementById('mobile-menu-btn');
+                const menu = document.getElementById('mobile-menu-content');
+                if (btn && menu) {
+                    btn.addEventListener('click', () => {
+                        menu.classList.toggle('hidden');
+                    });
+                }
+            });
+        </script>
 
         <!-- Messages -->
         {% if messages %}
