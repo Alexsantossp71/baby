@@ -1,9 +1,15 @@
 <div class="sticky top-24">
-    <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
-        <span class="material-symbols-outlined text-primary">tune</span> Filtros
-    </h3>
-    <form method="get" id="filters-form">
-        {% if request.GET.q %}
+    <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-bold flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">tune</span> Filtros
+        </h3>
+        <button type="button" onclick="document.getElementById('filtros-content').classList.toggle('hidden')" class="lg:hidden p-2 bg-slate-100 text-slate-700 rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center">
+            <span class="material-symbols-outlined">filter_list</span>
+        </button>
+    </div>
+    <div id="filtros-content" class="hidden lg:block">
+        <form method="get" id="filters-form">
+            {% if request.GET.q %}
             <input type="hidden" name="q" value="{{ request.GET.q }}">
         {% endif %}
         <div class="space-y-6">
@@ -77,4 +83,5 @@
             </a>
         </div>
     </form>
+    </div>
 </div>
