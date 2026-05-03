@@ -187,6 +187,32 @@ def criar_produto(request):
 
 
 @login_required
+@require_http_methods(["GET", "POST"])
+def editar_produto(request, pk):
+    """
+    Permite que um usuário edite um anúncio existente que ele possui.
+    """
+    produto = get_object_or_404(Produto, pk=pk, usuario=request.user)
+    
+    if request.method == 'POST':
+        form = ProdutoForm(request.POST, request.FILES, instance=produto)
+        if form.is_valid():
+            produto = form.save()
+            # Atualiza o slug se o título mudar
+            produto.slug = slugify(produto.titulo)
+            produto.save()
+            messages.success(request, 'Anúncio atualizado com sucesso!')
+            return redirect('baby:produto_detalhe', pk=produto.pk, slug=produto.slug)
+    else:
+        form = ProdutoForm(instance=produto)
+    
+    return render(request, 'baby/editar_produto.html', {
+        'form': form,
+        'produto': produto
+    })
+
+
+@login_required
 @require_http_methods(["GET"])
 def meus_produtos(request):
     """

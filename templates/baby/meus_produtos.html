@@ -40,7 +40,10 @@
                             <span class="text-slate-500">{{ produto.criado_em|date:"d/m/Y" }}</span>
                         </div>
                         <div class="flex gap-2 mt-4">
-                            <a href="{% url 'baby:produto_detalhe' pk=produto.pk slug=produto.slug %}" class="flex-1 px-3 py-2 bg-slate-100 text-slate-700 rounded-xl font-bold text-sm text-center hover:bg-slate-200 transition-colors">
+                            <a href="{% url 'baby:editar_produto' pk=produto.pk %}" class="flex-1 px-3 py-2 bg-slate-100 text-slate-700 rounded-xl font-bold text-sm text-center hover:bg-slate-200 transition-colors">
+                                Editar
+                            </a>
+                            <a href="{% url 'baby:produto_detalhe' pk=produto.pk slug=produto.slug %}" class="flex-1 px-3 py-2 bg-slate-50 text-slate-600 rounded-xl font-bold text-sm text-center hover:bg-slate-100 transition-colors">
                                 Ver
                             </a>
                             <form action="{% url 'baby:remover_produto' pk=produto.pk %}" method="POST" class="flex-1" onsubmit="return confirm('Tem certeza que deseja excluir este anúncio?');">
