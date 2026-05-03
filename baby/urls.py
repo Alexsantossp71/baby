@@ -6,6 +6,7 @@ app_name = 'baby'
 urlpatterns = [
     path('', views.home, name='home'),
     path('produtos/', views.lista_produtos, name='lista_produtos'),
+    path('produto/<uuid:pk>/remover/', views.remover_produto, name='remover_produto'),
     path('produto/<uuid:pk>/<slug:slug>/', views.produto_detalhe, name='produto_detalhe'),
     path('anunciar/', views.criar_produto, name='criar_produto'),
     path('meus-produtos/', views.meus_produtos, name='meus_produtos'),
@@ -16,5 +17,4 @@ urlpatterns = [
     path('favoritar/', views.favoritar_produto, name='favoritar_produto'),
     path('favoritos/', views.meus_favoritos, name='meus_favoritos'),
     path('categoria/<str:slug>/', views.categoria_view, name='categoria'),
-    path('produto/<uuid:pk>/remover/', views.remover_produto, name='remover_produto'),
 ]
