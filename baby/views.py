@@ -391,7 +391,6 @@ def categoria_view(request, slug):
 
 
 @login_required
-@require_POST
 def excluir_produto(request, pk):
     """
     Exclui um anúncio de produto. 
@@ -399,11 +398,11 @@ def excluir_produto(request, pk):
     """
     produto = get_object_or_404(Produto, pk=pk, usuario=request.user)
     
-    # Verifica se existem propostas aceitas ou em andamento antes de excluir
-    # (Opcional: você pode impedir a exclusão se houver trocas em andamento)
+    if request.method == 'POST':
+        titulo = produto.titulo
+        produto.delete()
+        messages.success(request, f'Anúncio "{titulo}" excluído com sucesso.')
+        return redirect('baby:meus_produtos')
     
-    titulo = produto.titulo
-    produto.delete()
-    
-    messages.success(request, f'Anúncio "{titulo}" excluído com sucesso.')
-    return redirect('baby:meus_produtos')
+    # Se tentarem acessar via GET (pela URL), redireciona para o detalhe do produto
+    return redirect('baby:produto_detalhe', pk=produto.pk, slug=produto.slug)
