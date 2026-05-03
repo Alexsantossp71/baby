@@ -55,14 +55,17 @@ def home(request):
     # Use standardized name 'produtos' for consistent partial usage
     produtos_list = produtos[:12]
     
-    filtro_form = ProdutoForm()
+    favoritos_ids = []
+    if request.user.is_authenticated:
+        favoritos_ids = list(ProdutoFavorito.objects.filter(usuario=request.user).values_list('produto_id', flat=True))
     
     context = {
         'categorias_topo': categorias[:6], # Top categories for icons
         'categorias': categorias, # All for filters - standardized name
         'produtos': produtos_list, # Standardized name
-        'produto_form': filtro_form,
+        'produto_form': ProdutoForm(),
         'filtros': request.GET.dict(),
+        'favoritos_ids': favoritos_ids,
     }
     return render(request, 'baby/home.html', context)
 
@@ -114,12 +117,17 @@ def lista_produtos(request):
     
     filtro_form = ProdutoForm()
     
+    favoritos_ids = []
+    if request.user.is_authenticated:
+        favoritos_ids = list(ProdutoFavorito.objects.filter(usuario=request.user).values_list('produto_id', flat=True))
+    
     context = {
         'page_obj': page_obj,
         'produtos': page_obj.object_list,
         'categorias': categorias,
         'filtros': request.GET.dict(),
         'produto_form': filtro_form,
+        'favoritos_ids': favoritos_ids,
     }
     return render(request, 'baby/lista_produtos.html', context)
 
@@ -265,6 +273,10 @@ def minhas_trocas(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
+    favoritos_ids = []
+    if request.user.is_authenticated:
+        favoritos_ids = list(ProdutoFavorito.objects.filter(usuario=request.user).values_list('produto_id', flat=True))
+    
     context = {
         'page_obj': page_obj,
         'propostas': page_obj.object_list,
@@ -408,10 +420,15 @@ def categoria_view(request, slug):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
+    favoritos_ids = []
+    if request.user.is_authenticated:
+        favoritos_ids = list(ProdutoFavorito.objects.filter(usuario=request.user).values_list('produto_id', flat=True))
+    
     context = {
         'categoria': categoria,
         'page_obj': page_obj,
         'produtos': page_obj.object_list,
+        'favoritos_ids': favoritos_ids,
     }
     return render(request, 'baby/categoria.html', context)
 

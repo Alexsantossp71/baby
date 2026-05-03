@@ -80,7 +80,7 @@
                                 </div>
                             {% endif %}
                             <div class="absolute top-3 right-3">
-                                <button class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-400 hover:text-red-500 transition-colors">
+                                <button data-favorite-produto-id="{{ produto.pk }}" class="size-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transition-colors {% if produto.pk in favoritos_ids %}text-red-500{% else %}text-slate-400{% endif %} hover:text-red-500">
                                     <span class="material-symbols-outlined">favorite</span>
                                 </button>
                             </div>

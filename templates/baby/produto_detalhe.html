@@ -2,6 +2,8 @@
 
 {% block title %}{{ produto.titulo }} - Permutas Baby{% endblock %}
 
+{% endblock %}
+
 {% block content %}
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
     <!-- Product Images -->
@@ -35,7 +37,7 @@
                 {% endif %}
                 <h1 class="text-3xl font-black text-slate-900">{{ produto.titulo }}</h1>
             </div>
-            <button id="favorite-btn" class="p-3 rounded-full border border-slate-200 hover:border-red-500 hover:text-red-500 transition-colors {% if favoritado %}text-red-500 border-red-500{% endif %}">
+            <button id="favorite-btn" data-favorite-produto-id="{{ produto.pk }}" class="p-3 rounded-full border border-slate-200 hover:border-red-500 hover:text-red-500 transition-colors {% if favoritado %}text-red-500 border-red-500{% endif %}">
                 <span class="material-symbols-outlined">favorite</span>
             </button>
         </div>
