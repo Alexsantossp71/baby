@@ -196,6 +196,15 @@
                         btn.classList.remove('border-red-500');
                         btn.classList.add('border-slate-200');
                     }
+                    if (window.location.pathname.includes('/favoritos/')) {
+                        const card = btn.closest('.group') || btn.closest('a');
+                        if (card) {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.9)';
+                            card.style.transition = 'all 0.3s ease';
+                            setTimeout(() => card.remove(), 300);
+                        }
+                    }
                 }
             }
         })
