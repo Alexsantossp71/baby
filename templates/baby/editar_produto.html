@@ -75,9 +75,14 @@
             
             <div class="space-y-4">
                 {% if produto.imagem_principal %}
-                <div class="mb-4">
-                    <p class="text-sm font-bold text-slate-700 mb-2">Imagem Atual:</p>
-                    <img src="{{ produto.imagem_principal.url }}" alt="{{ produto.titulo }}" class="w-32 h-32 object-cover rounded-xl border border-slate-200">
+                <div class="mb-4" id="image-preview-container">
+                    <p class="text-sm font-bold text-slate-700 mb-2" id="image-preview-title">Imagem Atual:</p>
+                    <img id="image-preview" src="{{ produto.imagem_principal.url }}" alt="{{ produto.titulo }}" class="w-32 h-32 object-cover rounded-xl border border-slate-200">
+                </div>
+                {% else %}
+                <div class="mb-4 hidden" id="image-preview-container">
+                    <p class="text-sm font-bold text-slate-700 mb-2" id="image-preview-title">Pré-visualização:</p>
+                    <img id="image-preview" src="" alt="Preview" class="w-32 h-32 object-cover rounded-xl border border-slate-200">
                 </div>
                 {% endif %}
                 <div>
@@ -116,4 +121,41 @@
         </div>
     </form>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('id_imagem_principal');
+    const previewContainer = document.getElementById('image-preview-container');
+    const previewImage = document.getElementById('image-preview');
+    const previewTitle = document.getElementById('image-preview-title');
+    
+    // Armazena url original caso usuário cancele a seleção da imagem
+    const originalSrc = previewImage ? previewImage.src : '';
+
+    if (fileInput) {
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    if (previewContainer) previewContainer.classList.remove('hidden');
+                    if (previewTitle) previewTitle.textContent = "Nova Imagem Selecionada:";
+                }
+                reader.readAsDataURL(file);
+            } else {
+                if (originalSrc) {
+                    previewImage.src = originalSrc;
+                    if (previewTitle) previewTitle.textContent = "Imagem Atual:";
+                } else {
+                    previewImage.src = '';
+                    if (previewContainer) previewContainer.classList.add('hidden');
+                }
+            }
+        });
+    }
+});
+</script>
 {% endblock %}
