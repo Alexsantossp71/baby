@@ -140,7 +140,7 @@
                 <a href="{% url 'baby:editar_produto' pk=produto.pk %}" class="block w-full py-4 bg-slate-100 text-slate-700 rounded-xl font-bold text-lg text-center hover:bg-slate-200 transition-colors">
                     Editar Anúncio
                 </a>
-                <form action="{% url 'baby:remover_produto' pk=produto.pk %}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este anúncio?');">
+                <form action="{% url 'baby:remover_produto' pk=produto.pk %}" method="POST">
                     {% csrf_token %}
                     <button type="submit" class="w-full py-4 bg-red-50 text-red-600 rounded-xl font-bold text-lg hover:bg-red-100 transition-colors">
                         Excluir Anúncio

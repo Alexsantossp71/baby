@@ -223,6 +223,18 @@ def editar_produto(request, pk):
 
 
 @login_required
+@require_http_methods(["POST"])
+def remover_produto(request, pk):
+    """
+    Remove um anúncio de produto se o usuário for o dono.
+    """
+    produto = get_object_or_404(Produto, pk=pk, usuario=request.user)
+    produto.delete()
+    messages.success(request, 'Anúncio excluído com sucesso!')
+    return redirect('baby:meus_produtos')
+
+
+@login_required
 @require_http_methods(["GET"])
 def meus_produtos(request):
     """
@@ -440,18 +452,3 @@ def categoria_view(request, slug):
     }
     return render(request, 'baby/categoria.html', context)
 
-
-@login_required
-def remover_produto(request, pk):
-    """
-    Exclui um anúncio de produto. 
-    """
-    produto = get_object_or_404(Produto, pk=pk, usuario=request.user)
-    
-    if request.method == 'POST':
-        titulo = produto.titulo
-        produto.delete()
-        messages.success(request, f'Anúncio "{titulo}" excluído com sucesso.')
-        return redirect('baby:meus_produtos')
-    
-    return redirect('baby:meus_produtos')

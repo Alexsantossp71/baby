@@ -19,6 +19,8 @@
                     <option value="-criado_em" {% if request.GET.ordenacao == '-criado_em' or not request.GET.ordenacao %}selected{% endif %}>Mais Recentes</option>
                     <option value="criado_em" {% if request.GET.ordenacao == 'criado_em' %}selected{% endif %}>Mais Antigos</option>
                     <option value="titulo" {% if request.GET.ordenacao == 'titulo' %}selected{% endif %}>Ordem Alfabética</option>
+                    <option value="valor_estimado" {% if request.GET.ordenacao == 'valor_estimado' %}selected{% endif %}>Menor Preço</option>
+                    <option value="-valor_estimado" {% if request.GET.ordenacao == '-valor_estimado' %}selected{% endif %}>Maior Preço</option>
                 </select>
             </div>
         </div>
