@@ -45,7 +45,7 @@ def home(request):
             Q(descricao__icontains=busca)
         )
     
-    ORDENACAO_VALIDA = ['-criado_em', 'criado_em', '-valor_estimado', 'valor_estimado', '-visualizacoes', '-favorito_count']
+    ORDENACAO_VALIDA = ['-criado_em', 'criado_em', '-valor_estimado', 'valor_estimado', '-visualizacoes', '-favorito_count', 'titulo']
     ordenacao = request.GET.get('ordenacao', '-criado_em')
     if ordenacao not in ORDENACAO_VALIDA:
         ordenacao = '-criado_em'
@@ -103,7 +103,7 @@ def lista_produtos(request):
             Q(descricao__icontains=busca)
         )
     
-    ORDENACAO_VALIDA = ['-criado_em', 'criado_em', '-valor_estimado', 'valor_estimado', '-visualizacoes', '-favorito_count']
+    ORDENACAO_VALIDA = ['-criado_em', 'criado_em', '-valor_estimado', 'valor_estimado', '-visualizacoes', '-favorito_count', 'titulo']
     ordenacao = request.GET.get('ordenacao', '-criado_em')
     if ordenacao not in ORDENACAO_VALIDA:
         ordenacao = '-criado_em'
@@ -414,7 +414,13 @@ def categoria_view(request, slug):
     produtos = Produto.objects.filter(
         categoria=categoria,
         status='disponivel'
-    ).select_related('usuario', 'categoria').order_by('-criado_em')
+    ).select_related('usuario', 'categoria')
+    
+    ORDENACAO_VALIDA = ['-criado_em', 'criado_em', '-valor_estimado', 'valor_estimado', '-visualizacoes', '-favorito_count', 'titulo']
+    ordenacao = request.GET.get('ordenacao', '-criado_em')
+    if ordenacao not in ORDENACAO_VALIDA:
+        ordenacao = '-criado_em'
+    produtos = produtos.order_by(ordenacao)
     
     paginator = Paginator(produtos, 24)
     page_number = request.GET.get('page')

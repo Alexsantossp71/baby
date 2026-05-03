@@ -59,7 +59,7 @@
             <h2 class="text-2xl font-bold tracking-tight">Produtos em Destaque</h2>
             <div class="flex items-center gap-2 text-sm text-slate-500">
                 Ordenar por: 
-                <select name="ordenacao" onchange="document.getElementById('filters-form').submit()" class="font-bold text-slate-900 dark:text-slate-100 bg-transparent border-none cursor-pointer">
+                <select name="ordenacao" form="filters-form" onchange="this.form.submit()" class="font-bold text-slate-900 dark:text-slate-100 bg-transparent border-none cursor-pointer">
                     <option value="-criado_em" {% if request.GET.ordenacao == '-criado_em' or not request.GET.ordenacao %}selected{% endif %}>Mais Recentes</option>
                     <option value="criado_em" {% if request.GET.ordenacao == 'criado_em' %}selected{% endif %}>Mais Antigos</option>
                     <option value="titulo" {% if request.GET.ordenacao == 'titulo' %}selected{% endif %}>Ordem Alfabética</option>

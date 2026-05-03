@@ -22,6 +22,19 @@
 </div>
 
 {% if produtos %}
+    <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold tracking-tight">Produtos na Categoria</h2>
+        <div class="flex items-center gap-2 text-sm text-slate-500">
+            Ordenar por: 
+            <form method="get" class="inline">
+                <select name="ordenacao" onchange="this.form.submit()" class="font-bold text-slate-900 dark:text-slate-100 bg-transparent border-none cursor-pointer">
+                    <option value="-criado_em" {% if request.GET.ordenacao == '-criado_em' or not request.GET.ordenacao %}selected{% endif %}>Mais Recentes</option>
+                    <option value="criado_em" {% if request.GET.ordenacao == 'criado_em' %}selected{% endif %}>Mais Antigos</option>
+                    <option value="titulo" {% if request.GET.ordenacao == 'titulo' %}selected{% endif %}>Ordem Alfabética</option>
+                </select>
+            </form>
+        </div>
+    </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {% for produto in produtos %}
             <a href="{% url 'baby:produto_detalhe' pk=produto.pk slug=produto.slug %}" class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
