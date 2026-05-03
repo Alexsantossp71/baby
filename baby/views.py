@@ -388,3 +388,22 @@ def categoria_view(request, slug):
         'produtos': page_obj.object_list,
     }
     return render(request, 'baby/categoria.html', context)
+
+
+@login_required
+@require_POST
+def excluir_produto(request, pk):
+    """
+    Exclui um anúncio de produto. 
+    Verifica se o usuário é o proprietário antes de realizar a exclusão.
+    """
+    produto = get_object_or_404(Produto, pk=pk, usuario=request.user)
+    
+    # Verifica se existem propostas aceitas ou em andamento antes de excluir
+    # (Opcional: você pode impedir a exclusão se houver trocas em andamento)
+    
+    titulo = produto.titulo
+    produto.delete()
+    
+    messages.success(request, f'Anúncio "{titulo}" excluído com sucesso.')
+    return redirect('baby:meus_produtos')
