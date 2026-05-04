@@ -12,6 +12,10 @@ python3 manage.py migrate --noinput
 echo "Configurando superusuário..."
 python3 manage.py setup_admin
 
+# Cria usuários de teste (UserLake1-10 / PassLake123!)
+echo "Criando usuários de teste..."
+python3 manage.py setup_test_users
+
 # Coleta arquivos estáticos
 echo "Coletando arquivos estáticos..."
 python3 manage.py collectstatic --noinput --clear
