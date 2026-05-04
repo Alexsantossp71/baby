@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 from django.views.decorators.http import require_http_methods
 from django_ratelimit.decorators import ratelimit
+
+User = get_user_model()
 
 
 @ratelimit(key='ip', rate='5/m', method='POST', block=True)
@@ -71,6 +73,38 @@ def logout_view(request):
     logout(request)
     messages.info(request, 'Você foi desconectado com sucesso.')
     return redirect('baby:home')
+
+
+DEFAULT_PASSWORD = 'PassLake123!'
+
+
+@ratelimit(key='ip', rate='5/m', method='POST', block=True)
+@require_http_methods(["GET", "POST"])
+def esqueceu_senha_view(request):
+    """
+    Handle the 'forgot password' flow.
+    Resets the user's password to a default value and shows an informational
+    message instructing them to contact the developer.
+    """
+    if request.method == 'POST':
+        identifier = request.POST.get('identifier', '').strip()
+        user = (
+            User.objects.filter(email__iexact=identifier).first()
+            or User.objects.filter(username__iexact=identifier).first()
+        )
+        if user:
+            user.set_password(DEFAULT_PASSWORD)
+            user.save()
+        # Always show the same message regardless of whether the user exists,
+        # to avoid leaking account information.
+        messages.warning(
+            request,
+            'Ainda não implantado — a senha foi alterada para senha padrão. '
+            'Consulte o desenvolvedor.'
+        )
+        return redirect('users:login')
+
+    return render(request, 'users/esqueceu_senha.html')
 
 
 @login_required

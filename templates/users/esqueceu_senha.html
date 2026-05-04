@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Recuperar Senha - Permutas Baby{% endblock %}
+
+{% block content %}
+<div style="min-height: calc(100vh - 200px); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+    <div style="max-width: 420px; width: 100%;">
+
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                <svg style="width: 40px; height: 40px; color: white;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+                </svg>
+            </div>
+            <h1 style="font-size: 1.75rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.5rem;">Recuperar Senha</h1>
+            <p style="color: var(--gray-500); font-size: 0.95rem;">
+                Informe seu e-mail ou nome de usuário para redefinir o acesso.
+            </p>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div style="background: #fffbeb; border: 1px solid #fcd34d; color: #92400e; padding: 1rem 1.25rem; border-radius: 10px; margin-bottom: 1.25rem; font-size: 0.9rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                    <svg style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>{{ message }}</span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--shadow-lg); border: 1px solid var(--gray-100);">
+            <form method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+                {% csrf_token %}
+
+                <div>
+                    <label for="id_identifier" style="display: block; font-weight: 500; color: var(--gray-700); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                        E-mail ou Nome de Usuário
+                    </label>
+                    <input
+                        id="id_identifier"
+                        name="identifier"
+                        type="text"
+                        required
+                        placeholder="seu@email.com ou nome_usuario"
+                        style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--gray-300); border-radius: 10px; font-size: 1rem; font-family: inherit; transition: all 0.2s; box-sizing: border-box;"
+                        onfocus="this.style.borderColor='var(--primary)'; this.style.boxShadow='0 0 0 3px var(--primary-light)';"
+                        onblur="this.style.borderColor='var(--gray-300)'; this.style.boxShadow='none';"
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.875rem; font-size: 1rem; margin-top: 0.5rem;">
+                    Redefinir Senha
+                </button>
+            </form>
+
+            <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-100); text-align: center;">
+                <p style="font-size: 0.85rem; color: var(--gray-500);">
+                    Lembrou a senha?
+                    <a href="{% url 'users:login' %}" style="color: var(--primary); font-weight: 500;">Voltar ao login</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
