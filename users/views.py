@@ -95,14 +95,9 @@ def esqueceu_senha_view(request):
         if user:
             user.set_password(DEFAULT_PASSWORD)
             user.save()
-        # Always show the same message regardless of whether the user exists,
-        # to avoid leaking account information.
-        messages.warning(
-            request,
-            'Ainda não implantado — a senha foi alterada para senha padrão. '
-            'Consulte o desenvolvedor.'
-        )
-        return redirect('users:login')
+        # Render the page with a success modal instead of redirecting immediately.
+        # The modal (defined in the template) handles navigation to the login page.
+        return render(request, 'users/esqueceu_senha.html', {'show_modal': True})
 
     return render(request, 'users/esqueceu_senha.html')
 

@@ -64,4 +64,128 @@
 
     </div>
 </div>
+
+{% if show_modal %}
+<!-- ===== SUCCESS MODAL ===== -->
+<div id="resetSuccessModal" style="
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.25s ease;
+">
+    <!-- Backdrop -->
+    <div style="
+        position: absolute; inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(4px);
+    "></div>
+
+    <!-- Card -->
+    <div style="
+        position: relative;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        max-width: 420px; width: 100%;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        text-align: center;
+        animation: slideUp 0.3s ease;
+    ">
+        <!-- Icon -->
+        <div style="
+            width: 72px; height: 72px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 8px 20px rgba(16,185,129,0.35);
+        ">
+            <svg style="width:36px;height:36px;color:#fff" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+
+        <!-- Title -->
+        <h2 style="font-size:1.4rem;font-weight:700;color:#1e293b;margin:0 0 0.75rem;">
+            Solicitação Recebida
+        </h2>
+
+        <!-- Body -->
+        <p style="font-size:0.92rem;color:#475569;line-height:1.6;margin:0 0 0.5rem;">
+            Ainda não implantado — a senha foi alterada para a <strong>senha padrão</strong>.
+        </p>
+        <p style="font-size:0.88rem;color:#64748b;margin:0 0 1.75rem;">
+            Entre em contato com o desenvolvedor para obter a senha padrão.
+        </p>
+
+        <!-- Countdown bar -->
+        <div style="
+            background:#f1f5f9; border-radius:99px;
+            height:6px; margin-bottom:1rem; overflow:hidden;
+        ">
+            <div id="countdownBar" style="
+                height:100%; width:100%;
+                background:linear-gradient(90deg,#10b981,#059669);
+                border-radius:99px;
+                transition: width 1s linear;
+            "></div>
+        </div>
+
+        <p style="font-size:0.8rem;color:#94a3b8;margin:0 0 1.5rem;">
+            Redirecionando para o login em <strong id="countdownNum">5</strong>s…
+        </p>
+
+        <!-- CTA Button -->
+        <a id="goLoginBtn" href="{% url 'users:login' %}"
+           style="
+               display:inline-flex; align-items:center; gap:0.5rem;
+               background:linear-gradient(135deg,#10b981,#059669);
+               color:#fff; font-weight:600; font-size:0.95rem;
+               padding:0.75rem 2rem; border-radius:12px;
+               text-decoration:none;
+               box-shadow:0 4px 14px rgba(16,185,129,0.35);
+               transition:transform 0.15s,box-shadow 0.15s;
+           "
+           onmouseover="this.style.transform='scale(1.03)'"
+           onmouseout="this.style.transform='scale(1)'">
+            <svg style="width:18px;height:18px" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+            </svg>
+            Ir para o Login
+        </a>
+    </div>
+</div>
+
+<style>
+@keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
+@keyframes slideUp { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+</style>
+
+<script>
+(function () {
+    const LOGIN_URL = "{% url 'users:login' %}";
+    const TOTAL    = 5;
+    let remaining  = TOTAL;
+
+    const bar = document.getElementById('countdownBar');
+    const num = document.getElementById('countdownNum');
+
+    const tick = setInterval(function () {
+        remaining -= 1;
+        num.textContent = remaining;
+        bar.style.width = ((remaining / TOTAL) * 100) + '%';
+
+        if (remaining <= 0) {
+            clearInterval(tick);
+            window.location.href = LOGIN_URL;
+        }
+    }, 1000);
+
+    // Allow clicking the button to cancel the timer
+    document.getElementById('goLoginBtn').addEventListener('click', function () {
+        clearInterval(tick);
+    });
+})();
+</script>
+{% endif %}
 {% endblock %}
